@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>2026 BUSAN</title>
+    <title>2026-BUSAN</title>
     <style>
         :root {
             --steel-blue: #4682B4;
@@ -20,26 +20,60 @@
             z-index: -1;
             background: url('https://rosaroundtheworld.com/wp-content/uploads/2024/10/2_122622.webp') no-repeat center center;
             background-size: cover;
-            transform: translateZ(0);
-            -webkit-transform: translateZ(0);
         }
 
         body {
             font-family: "PingFang TC", "Microsoft JhengHei", sans-serif;
             margin: 0; padding: 0; color: #333;
             background-color: var(--light-bg-blue);
+            scroll-behavior: smooth;
         }
 
         header {
             background: rgba(255, 255, 255, 0.6);
             backdrop-filter: blur(12px);
             -webkit-backdrop-filter: blur(12px);
-            padding: 50px 15px;
+            padding: 50px 20px; 
             text-align: center;
-            border-bottom: 3px solid var(--steel-blue);
+            border-bottom: 2px solid var(--steel-blue);
         }
 
         h1 { color: var(--steel-blue); font-size: 2rem; margin: 0; letter-spacing: 4px; }
+
+        .day-nav {
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            background: rgba(255, 255, 255, 0.4); 
+            backdrop-filter: blur(12px);
+            -webkit-backdrop-filter: blur(12px);
+            padding: 12px 0;
+            display: flex;
+            justify-content: center;
+            overflow-x: auto; 
+            white-space: nowrap;
+            border-bottom: 1px solid var(--steel-blue);
+            scrollbar-width: none;
+        }
+        
+        @media (max-width: 600px) {
+            .day-nav { justify-content: flex-start; padding-left: 15px; }
+        }
+
+        .day-nav::-webkit-scrollbar { display: none; }
+
+        .nav-item {
+            display: inline-block;
+            padding: 8px 18px;
+            margin: 0 4px;
+            background: white;
+            color: var(--steel-blue);
+            text-decoration: none;
+            border-radius: 20px;
+            font-weight: bold;
+            font-size: 0.9rem;
+            flex-shrink: 0;
+        }
 
         .container { max-width: 900px; margin: 0 auto; padding: 20px 15px 80px 15px; }
 
@@ -49,10 +83,11 @@
             padding: 12px 28px;
             font-size: 1.3rem;
             font-weight: bold;
-            margin: 45px 0 25px 0;
+            margin: 60px 0 25px 0;
             border-radius: 50px;
             display: inline-block;
             box-shadow: 4px 4px 0px var(--accent-pink);
+            scroll-margin-top: 80px;
         }
 
         .spot-link { text-decoration: none; color: inherit; display: block; margin-bottom: 30px; cursor: pointer; }
@@ -110,33 +145,44 @@
 <div class="bg-fixed"></div>
 
 <header>
-    <h1>2026 釜山/大邱/鎮海/慶州 10日遊</h1>
+    <h1>釜山/大邱/鎮海/慶州 10日遊</h1>
 </header>
+
+<nav class="day-nav">
+    <a href="#day1" class="nav-item">3/28</a>
+    <a href="#day2" class="nav-item">3/29</a>
+    <a href="#day3" class="nav-item">3/30</a>
+    <a href="#day4" class="nav-item">3/31</a>
+    <a href="#day5" class="nav-item">4/1</a>
+    <a href="#day6" class="nav-item">4/2</a>
+    <a href="#day7" class="nav-item">4/3</a>
+    <a href="#day8" class="nav-item">4/4</a>
+    <a href="#day9" class="nav-item">4/5</a>
+    <a href="#day10" class="nav-item">4/6</a>
+</nav>
 
 <div class="container">
 
-    <div class="day-banner">3/28 (六) ✈️</div>
-    <a href="https://naver.me/G4Wo3D8L" class="spot-link" target="_blank" rel="noopener noreferrer">
+    <div class="day-banner" id="day1">3/28 (六) ✈️</div>
+    <a href="https://naver.me/G4Wo3D8L" class="spot-link" target="_blank">
         <div class="spot-row">
             <img class="spot-img" src="https://search.pstatic.net/common/?src=https%3A%2F%2Fldb-phinf.pstatic.net%2F20240313_20%2F1710297487847Jrq0E_JPEG%2F001.jpg">
             <div class="spot-info">
                 <div class="spot-name">釜山土生土長豬肉湯飯</div>
                 <br>
-                <p class="spot-desc">韓國釜山代表性的在地美食。以長時間熬煮的豬骨湯為底，加入切片豬肉與內臟，湯頭濃郁不油膩，搭配白飯一同食用，附上韭菜、蝦醬、辣醬與泡菜，依喜好自行調味。
-                </p>
+                <p class="spot-desc">韓國釜山代表性的在地美食。以長時間熬煮的豬骨湯為底，加入切片豬肉與內臟，湯頭濃郁不油膩，搭配白飯一同食用，附上韭菜、蝦醬、辣醬與泡菜，依喜好自行調味。</p>
             </div>
         </div>
     </a>
 
-    <div class="day-banner">3/29 (日) 五六島＋東萊</div>
-    <a href="https://naver.me/GeUiQN33" class="spot-link" target="_blank" rel="noopener noreferrer">
+    <div class="day-banner" id="day2">3/29 (日) 五六島＋東萊</div>
+    <a href="https://naver.me/GeUiQN33" class="spot-link" target="_blank">
         <div class="spot-row">
             <img class="spot-img" src="https://search.pstatic.net/common/?src=https%3A%2F%2Fldb-phinf.pstatic.net%2F20251110_127%2F1762755631431dK7SQ_JPEG%2Fjikji.jpg">
             <div class="spot-info">
                 <div class="spot-name">FOCACCIA FOREST</div>
                 <br>
-                <p class="spot-desc">人氣早午餐與烘焙店，以現烤佛卡夏聞名。店內主打各式創意佛卡夏三明治，搭配新鮮蔬菜、起司與肉類，口感外酥內軟、香氣十足。整體裝潢走溫馨自然風格，帶有森林系氛圍，適合早午餐、輕食或悠閒下午茶時光。
-                </p>
+                <p class="spot-desc">人氣早午餐與烘焙店，以現烤佛卡夏聞名。店內主打各式創意佛卡夏三明治，搭配新鮮蔬菜、起司與肉類，口感外酥內軟、香氣十足。整體裝潢走溫馨自然風格，帶有森林系氛圍，適合早午餐、輕食或悠閒下午茶時光。</p>
             </div>
         </div>
     </a>
@@ -146,8 +192,7 @@
             <div class="spot-info">
                 <div class="spot-name">南川洞櫻花街</div>
                 <br>
-                <p class="spot-desc">當地著名的賞櫻景點。每年約3月底至4月初櫻花盛開時，整條街道形成粉色櫻花隧道，景色浪漫迷人。由於鄰近海邊與住宅區，氛圍相對悠閒，少了大型觀光景點的人潮，更有在地生活感，是春季到釜山旅遊不可錯過的賞花地點之一。
-                </p>
+                <p class="spot-desc">當地著名的賞櫻景點。每年約3月底至4月初櫻花盛開時，整條街道形成粉色櫻花隧道，景色浪漫迷人。由於鄰近海邊與住宅區，氛圍相對悠閒，少了大型觀光景點的人潮，更有在地生活感，是春季到釜山旅遊不可錯過的賞花地點之一。</p>
             </div>
         </div>
     </a>
@@ -157,8 +202,7 @@
             <div class="spot-info">
                 <div class="spot-name">五六島迎日公園</div>
                 <br>
-                <p class="spot-desc">欣賞海景與日出的熱門景點。公園面向著名的五六島，天氣晴朗時可清楚看到海上岩島景觀。這裡也是迎接新年的著名地點，許多遊客會特地前來觀看日出，寓意嶄新的開始。
-                </p>
+                <p class="spot-desc">欣賞海景與日出的熱門景點。公園面向著名的五六島，天氣晴朗時可清楚看到海上岩島景觀。這裡也是迎接新年的著名地點，許多遊客會特地前來觀看日出，寓意嶄新的開始。</p>
             </div>
         </div>
     </a>
@@ -168,30 +212,27 @@
             <div class="spot-info">
                 <div class="spot-name">五六島天空步道</div>
                 <br>
-                <p class="spot-desc">位於五六島迎日公園內，是當地知名的海景景點。步道採U字形設計，地面為透明強化玻璃，延伸至海岸懸崖外側，能直接俯瞰腳下的海浪與岩石，視覺效果震撼。免費開放入場（需穿戴鞋套），是釜山欣賞海景與拍照打卡的熱門地標之一。
-                </p>
+                <p class="spot-desc">位於五六島迎日公園內，是當地知名的海景景點。步道採U字形設計，地面為透明強化玻璃，延伸至海岸懸崖外側，能直接俯瞰腳下的海浪與岩石，視覺效果震撼。免費開放入場（需穿戴鞋套），是釜山欣賞海景與拍照打卡的熱門地標之一。</p>
             </div>
         </div>
     </a>
-    <a href="https://naver.me/5mI0AdxF" class="spot-link" target="_blank" rel="noopener noreferrer">
+    <a href="https://naver.me/5mI0AdxF" class="spot-link" target="_blank">
         <div class="spot-row">
             <img class="spot-img" src="https://search.pstatic.net/common/?src=https%3A%2F%2Fblogfiles.pstatic.net%2FMjAyNTEwMDhfOTgg%2FMDAxNzU5OTExNTY3MjA0.siJixTunmE6WqXUQ96mQzVludt-mXc9B1Htbcrg-llYg.absqqgrepNbe8k40uv0BYHxC_Hnzks2U9ZVe4MCIB9og.JPEG%2FIMG＿7680.jpg%2F900x900">
             <div class="spot-info">
                 <div class="spot-name">MOMOS</div>
                 <br>
-                <p class="spot-desc">韓國釜山最具代表性的精品咖啡品牌之一，也是韓國咖啡迷心中的朝聖地。創立於 2007 年，以專業烘豆與高品質手沖咖啡聞名，曾在國際咖啡賽事中獲獎，提升了品牌知名度。店內空間多為簡約現代風格，主打單品咖啡與自家烘焙咖啡豆，也販售甜點與輕食。無論是咖啡品質或品牌地位，MOMOS 都被視為釜山精品咖啡的代表之一。
-                </p>
+                <p class="spot-desc">韓國釜山最具代表性的精品咖啡品牌之一，也是韓國咖啡迷心中的朝聖地。創立於 2007 年，以專業烘豆與高品質手沖咖啡聞名，曾在國際咖啡賽事中獲獎，提升了品牌知名度。店內空間多為簡約現代風格，主打單品咖啡與自家烘焙咖啡豆，也販售甜點與輕食。無論是咖啡品質或品牌地位，MOMOS 都被視為釜山精品咖啡的代表之一。</p>
             </div>
         </div>
     </a>
-    <a href="https://naver.me/x3HLlCrE" class="spot-link" target="_blank" rel="noopener noreferrer">
+    <a href="https://naver.me/x3HLlCrE" class="spot-link" target="_blank">
         <div class="spot-row">
             <img class="spot-img" src="https://search.pstatic.net/common/?src=https%3A%2F%2Fnaverbooking-phinf.pstatic.net%2F20220927_249%2F1664267421711Ej1ae_JPEG%2FIMG_4483-1.jpg">
             <div class="spot-info">
                 <div class="spot-name">外食365巨蟹好天</div>
                 <br>
-                <p class="spot-desc">主打各式以螃蟹與甲殼類為特色的料理。這間餐廳以新鮮的螃蟹菜餚為招牌，提供多種烹調方式的蟹料理，是海鮮愛好者的熱門選擇。餐點口味受到當地食客好評，適合想嘗試釜山海鮮美食的旅人前往。
-                </p>
+                <p class="spot-desc">主打各式以螃蟹與甲殼類為特色的料理。這間餐廳以新鮮的螃蟹菜餚為招牌，提供多種烹調方式的蟹料理，是海鮮愛好者的熱門選擇。餐點口味受到當地食客好評，適合想嘗試釜山海鮮美食的旅人前往。</p>
             </div>
         </div>
     </a>
@@ -201,91 +242,212 @@
             <div class="spot-info">
                 <div class="spot-name">東萊邑城</div>
                 <br>
-                <p class="spot-desc">朝鮮時代的重要城郭遺址。最早建於高麗時期，後在朝鮮王朝時重建與擴建，具有軍事防禦功能。1592年壬辰倭亂期間，這裡曾發生激烈戰役，是韓國歷史上的重要戰場之一。現今部分城牆與城門已復原，園區綠意盎然，春季櫻花盛開時特別美麗，也常舉辦歷史文化活動，適合喜歡歷史古蹟與散步賞景的旅人造訪。
-                </p>
+                <p class="spot-desc">朝鮮時代的重要城郭遺址。最早建於高麗時期，後在朝鮮王朝時重建與擴建，具有軍事防禦功能。1592年壬辰倭亂期間，這裡曾發生激烈戰役，是韓國歷史上的重要戰場之一。現今部分城牆與城門已復原，園區綠意盎然，春季櫻花盛開時特別美麗，也常舉辦歷史文化活動，適合喜歡歷史古蹟與散步賞景的旅人造訪。</p>
             </div>
         </div>
     </a>
-    <a href="https://naver.me/GmbMzCRp" class="spot-link" target="_blank" rel="noopener noreferrer">
+    <a href="https://naver.me/GmbMzCRp" class="spot-link" target="_blank">
         <div class="spot-row">
-            <img class="spot-img" src="https://m.place.naver.com/restaurant/13573606/photo?filterType=AI%20View&subFilter=MENU_NAME%3A%ED%98%B8%EB%96%A1&view=blog_90000003_000000000000003418D3FC59#">
+            <img class="spot-img" src="https://search.pstatic.net/common/?src=https%3A%2F%2Fblogfiles.pstatic.net%2FMjAyNTAxMjhfMTEw%2FMDAxNzM4MDYyMzI5ODMx.tdhYwkGaSwON89FbJlsljWeU0LB0snWyVOC4poOyM60g.lLy9H_xCUsGqYUnBTdzECaK3Cy_4kQJ4uJS8t13O45wg.JPEG%2F신가네_(23).jpg%2F1536x2048">
             <div class="spot-info">
                 <div class="spot-name">Singa’s糖餅紫菜包飯炒年糕</div>
                 <br>
-                <p class="spot-desc">一家人氣韓式街頭小吃店，以超平價經典小吃為主、從早餐到晚餐都能吃到傳統味。這裡就是一站式嚐遍韓國經典路邊小吃的好地方，味道樸實、價格友善，非常適合想體驗地道韓式小吃的旅人。
-                </p>
+                <p class="spot-desc">一家人氣韓式街頭小吃店，以超平價經典小吃為主、從早餐到晚餐都能吃到傳統味。這裡就是一站式嚐遍韓國經典路邊小吃的好地方，味道樸實、價格友善，非常適合想體驗地道韓式小吃的旅人。</p>
+            </div>
+        </div>
+    </a>
+    <a class="spot-link">
+        <div class="spot-row">
+            <img class="spot-img" src="https://i0.wp.com/journey.tw/wp-content/uploads/2023-04-02-220050-15.jpg?ssl=1">
+            <div class="spot-info">
+                <div class="spot-name">溫泉川</div>
+                <br>
+                <p class="spot-desc">當地著名的市區河川與散步景點。河道兩旁規劃完善，有自行車道與步道，四季景色各有特色。春天櫻花盛開時形成櫻花步道，吸引許多市民與遊客前來賞花。「溫泉川」名稱來自東萊溫泉地區，周邊也有溫泉設施與住宅區，整體氛圍悠閒，是體驗釜山市民日常生活的好去處。</p>
+            </div>
+        </div>
+    </a>
+    <a class="spot-link">
+        <div class="spot-row">
+            <img class="spot-img" src="https://search.pstatic.net/common/?src=https%3A%2F%2Fldb-phinf.pstatic.net%2F20210208_186%2F1612760142274HnOmz_JPEG%2FXuKxRHwuy9jhO5UZ4gBHTv_m.jpeg.jpg">
+            <div class="spot-info">
+                <div class="spot-name">E-MART TRADERS</div>
+                <span class="time-tag">買韓牛</span>
+                <br>
+                <p class="spot-desc">大型倉儲型折扣購物超市。由韓國最大零售連鎖體系 E-Mart 旗下品牌 Traders 經營，是個結合了傳統大賣場與倉儲式量販特色的購物場所。這類店鋪主打 大量、低價、多種類商品，賣場空間寬敞，商品陳列多以批量、大包裝為主。類似 韓版Costco 但不像 Costco 需要會員資格才能購物，在 Emart Traders 店，不需要付費會員即可進入消費。</p>
+            </div>
+        </div>
+    </a>
+    <a href="https://naver.me/5owqNDrY" class="spot-link" target="_blank">
+        <div class="spot-row">
+            <img class="spot-img" src="https://search.pstatic.net/common/?src=https%3A%2F%2Fldb-phinf.pstatic.net%2F20251121_53%2F1763701700217y90gn_JPEG%2FIMG_0034.jpeg">
+            <div class="spot-info">
+                <div class="spot-name">Seasons</div>
+                <br>
+                <p class="spot-desc">招牌是四層草莓蛋糕的咖啡廳。提供各種咖啡、季節性飲品與甜點，環境適合坐下來喝杯飲料、享受海景與輕食。</p>
             </div>
         </div>
     </a>
 
-    <div class="day-banner">3/30 (一) 機張與松亭慢旅</div>
-    <a href="#" class="spot-link">
+    <div class="day-banner" id="day3">3/30 (一) 機張＋松亭</div>
+    <a href="https://naver.me/5WOQqri9" class="spot-link" target="_blank">
         <div class="spot-row">
+            <img class="spot-img" src="https://search.pstatic.net/common/?src=https%3A%2F%2Fldb-phinf.pstatic.net%2F20240902_217%2F1725257120755OOAOp_JPEG%2FIMG_5939.jpeg">
             <div class="spot-info">
-                <div class="spot-name">All Sunday 貝果 & 五郎台</div>
-                <p class="spot-desc">海邊享用超人氣貝果，參觀壯觀的海邊祭壇五郎台與海東龍宮寺。</p>
+                <div class="spot-name">All Sunday</div>
+                <br>
+                <p class="spot-desc">熱門貝果店，當地人和觀光客都會排隊。貝果口味多、配料豐富，還有咖啡可以配，面對海灘吃超愜意。</p>
             </div>
         </div>
     </a>
-    <a href="#" class="spot-link">
+    <a class="spot-link">
         <div class="spot-row">
+            <img class="spot-img" src="https://search.pstatic.net/common/?src=https%3A%2F%2Fpup-review-phinf.pstatic.net%2FMjAyNjAyMTVfOTQg%2FMDAxNzcxMTIyNjE4NDUx.BMQ5ZfshuGAOPvavA4QV9U7MQ2XPkEWLsHpYhOb4Z9Yg.pmVm6A5heQF6QuIJL5uo37f9zQ45m9aV7CwY9jwSruUg.JPEG%2F20260215_101251.jpg.jpg%3Ftype%3Dw1500_60_sharpen">
             <div class="spot-info">
-                <div class="spot-name">尾浦家、水月鏡花 & 達人牛胃</div>
-                <p class="spot-desc">午餐醬蟹與午後茶屋，晚間享用香氣四溢的炭烤牛胃。</p>
+                <div class="spot-name">五郎台</div>
+                <br>
+                <p class="spot-desc">欣賞東海海景的熱門景點。這裡以海中岩石、白色燈塔與涼亭景色聞名，海浪拍打岩岸的畫面十分壯觀。清晨日出特別迷人，也適合沿著海岸步道散步放鬆。</p>
+            </div>
+        </div>
+    </a>
+    <a class="spot-link">
+        <div class="spot-row">
+            <img class="spot-img" src="https://search.pstatic.net/common/?src=https%3A%2F%2Fldb-phinf.pstatic.net%2F20250916_70%2F1757979606600Ldz9a_PNG%2F%25B7%25E7%25C1%25F6.png">
+            <div class="spot-info">
+                <div class="spot-name">Skyline Luge</div>
+                <br>
+                <p class="spot-desc">戶外刺激遊樂體驗景點。會先搭乘吊椅到高處，再坐上重力驅動的特殊滑車沿著4條彎道滑下，全長約 2.4 公里，速度與視野都很過癮。園區也有高空滑索，可以俯瞰周邊山海景色，是結合冒險與風景的熱門活動。</p>
+            </div>
+        </div>
+    </a>
+    <a class="spot-link">
+        <div class="spot-row">
+            <img class="spot-img" src="https://search.pstatic.net/common/?src=https%3A%2F%2Fpup-review-phinf.pstatic.net%2FMjAyNjAyMTRfMjIw%2FMDAxNzcxMDU1MDQ2NDU1.gHdK4YJaoeOUj52yKHz0C6jvr8CSsaWYjqSDOjuS61Yg.ykwCWBbHO_cS2n797YlL7SBI6yY1mWOtUi2TNmS2J6Mg.JPEG%2F20260214_135156.jpg.jpg%3Ftype%3Dw1500_60_sharpen">
+            <div class="spot-info">
+                <div class="spot-name">海東龍宮寺</div>
+                <br>
+                <p class="spot-desc">建在懸崖上面向大海。寺廟與海景融合，日出特別壯觀，是拍照與散步的熱門景點。</p>
+            </div>
+        </div>
+    </a>
+    <a class="spot-link">
+        <div class="spot-row">
+            <img class="spot-img" src="https://search.pstatic.net/common/?src=https%3A%2F%2Fldb-phinf.pstatic.net%2F20221014_299%2F1665727955941OL6CN_JPEG%2F%25C7%25C1%25B8%25AE%25B9%25CC%25BE%25F6%25BE%25C6%25BF%25EF%25B7%25BF_%25B5%25BF%25BA%25CE%25BB%25EA1_%25281%2529.jpg">
+            <div class="spot-info">
+                <div class="spot-name">LOTTE PREMIUM OUTLETS</div>
+                <br>
+                <p class="spot-desc">大型名牌折扣購物中心。這裡有國際及韓國品牌，價格優惠，適合購物愛好者。園區寬敞，也有餐飲區和咖啡廳，方便逛上一整天。</p>
+            </div>
+        </div>
+    </a>
+    <a href="https://naver.me/IMyGdVr6" class="spot-link" target="_blank">
+        <div class="spot-row">
+            <img class="spot-img" src="https://search.pstatic.net/common/?src=https%3A%2F%2Fldb-phinf.pstatic.net%2F20230207_177%2F1675725226987V8hRJ_JPEG%2FKakaoTalk_20221104_155720181.jpg">
+            <div class="spot-info">
+                <div class="spot-name">尾浦家</div>
+                <br>
+                <p class="spot-desc">很受歡迎的醬海鮮餐廳，以大份量的醃製海鮮套餐（像是醬蟹、各種海鮮拼盤）和釜飯、小菜聞名，風味鮮美、份量足。店裡常常需要排隊或預約，是喜歡海鮮料理的遊客推薦的美食之一。</p>
+            </div>
+        </div>
+    </a>
+    <a href="https://naver.me/57VZtyx3" class="spot-link" target="_blank">
+        <div class="spot-row">
+            <img class="spot-img" src="https://search.pstatic.net/common/?src=https%3A%2F%2Fldb-phinf.pstatic.net%2F20240207_191%2F1707293543299O12kn_JPEG%2FDSC06193-5.jpg">
+            <div class="spot-info">
+                <div class="spot-name">水月鏡花</div>
+                <br>
+                <p class="spot-desc">特色韓屋風咖啡廳，主打各式茶飲、傳統點心與咖啡。店內可透過大窗眺望整片海景和海岸列車經過的畫面，氛圍優雅寧靜，是喝下午茶、拍照打卡的熱門景點。</p>
+            </div>
+        </div>
+    </a>
+    <a class="spot-link">
+        <div class="spot-row">
+            <img class="spot-img" src="https://search.pstatic.net/common/?src=https%3A%2F%2Fpup-review-phinf.pstatic.net%2FMjAyNjAyMTVfOTQg%2FMDAxNzcxMTI3NDI3NTQx.pRdoJ6gxdrdOJJccnBWwcI33h5MgvrWQ1d91oNQgnksg.UBNW0FMuiY9S3eT7GhD5nRRXrnkKAXIX2BMyPRz2uH8g.JPEG%2F1000069253.jpg.jpg%3Ftype%3Dw1500_60_sharpen">
+            <div class="spot-info">
+                <div class="spot-name">松亭海水浴場</div>
+                <br>
+                <p class="spot-desc">氣氛較悠閒的海灘。這裡以乾淨沙灘與平穩海浪聞名，適合衝浪與散步。相比海雲台人潮較少，氛圍更放鬆自在。</p>
+            </div>
+        </div>
+    </a>
+    <a href="https://naver.me/GEXhAEvs" class="spot-link" target="_blank">
+        <div class="spot-row">
+            <img class="spot-img" src="https://search.pstatic.net/common/?src=https%3A%2F%2Fldb-phinf.pstatic.net%2F20250915_244%2F1757926453996Yo6Vq_PNG%2F%25C1%25A6%25B8%25F1%25C0%25BB_%25C0%25D4%25B7%25C2%25C7%25D8%25C1%25D6%25BC%25BC%25BF%25E4..png">
+            <div class="spot-info">
+                <div class="spot-name">達人牛胃</div>
+                <br>
+                <p class="spot-desc">人氣韓牛烤肉餐廳，主打新鮮牛內臟與牛肉料理。肉質鮮嫩、份量實在，搭配韓式小菜風味十足。適合想體驗道地韓式燒肉的饕客。</p>
+            </div>
+        </div>
+    </a>
+    <a href="https://naver.me/5wWelhk7" class="spot-link" target="_blank">
+        <div class="spot-row">
+            <img class="spot-img" src="https://search.pstatic.net/common/?src=http%3A%2F%2Fblogfiles.naver.net%2FMjAyNjAxMDZfMTc1%2FMDAxNzY3NjgxMTc4MDAx.SvD6l-UUzxYViMfo6HHDn52ApdCrVK6RvIVGqHasPqMg.dyEWkrgROr7I12efP2oOMX2mzeSP0lFs5kxg0rRqrmMg.JPEG%2FKakaoTalk_20251230_205528843_02.jpg">
+            <div class="spot-info">
+                <div class="spot-name">海雲台名品糖餅</div>
+                <br>
+                <p class="spot-desc">海雲台市場內的人氣小吃攤。主打現炸黑糖堅果糖餅，外酥內軟、甜而不膩。逛市場時來一份熱騰騰的糖餅，是經典釜山味道。</p>
             </div>
         </div>
     </a>
 
-    <div class="day-banner">3/31 (二) 海雲台浪漫線 ✅</div>
-    <a href="https://www.bluelinepark.com/" target="_blank" class="spot-link">
+    <div class="day-banner" id="day4">3/31 (二) 海雲台</div>
+    <a href="https://naver.me/5b0e4uBU" class="spot-link" target="_blank">
         <div class="spot-row">
-            <img class="spot-img" src="https://images.unsplash.com/photo-1470071459604-3b5ec3a7fe05?w=800">
+            <img class="spot-img" src="https://search.pstatic.net/common/?src=http%3A%2F%2Fblogfiles.naver.net%2FMjAyNjAxMTBfMjI1%2FMDAxNzY4MDQzNDY1NjY3.fk96M3XJAFVY5uvbb_YgL1FVYYZYkgnnA5_I9Yj1q0Yg._YJQMJFkMbpSd5xqFJo9O2gm2-zzsMCXLUrDbEGCNVMg.JPEG%2FIMG_9422.jpeg">
             <div class="spot-info">
-                <span class="time-tag">14:00 預約完成</span>
-                <div class="spot-name">藍線公園膠囊列車</div>
-                <p class="spot-desc">彩色膠囊列車之旅。傍晚 18:30 登船遊艇之旅，晚餐品嚐石雞料理。</p>
+                <div class="spot-name">BUSANDANG</div>
+                <br>
+                <p class="spot-desc">受歡迎的伴手禮甜點店，主打融合在地元素的創意糕點。店內設計文青簡約，適合拍照打卡。很適合買來當釜山旅遊紀念或送禮。</p>
             </div>
         </div>
     </a>
-
-    <div class="day-banner">4/2 (四) 鎮海 櫻花之巔 ✅</div>
-    <a href="#" class="spot-link">
+    <a class="spot-link">
         <div class="spot-row">
-            <img class="spot-img" src="https://images.unsplash.com/photo-1578991624414-276ef23a534a?w=800">
+            <img class="spot-img" src="https://search.pstatic.net/common/?src=https%3A%2F%2Fpup-review-phinf.pstatic.net%2FMjAyNTA2MTdfMTc5%2FMDAxNzUwMTcyMzMxMjE1.t1ZcQhNHmF9hql84kPdAY-Uxkh7AYC0Vj5A0qCI2oW8g.YdgqV-5ezJoDcitTRFFn3i9aPAGOH8iuCjxBMF6kWSog.JPEG%2FSE-8b580421-4b85-11f0-81e7-2ffb4a1c511a.jpg.jpg%3Ftype%3Dw1500_60_sharpen">
             <div class="spot-info">
-                <span class="time-tag">08:00 - 18:00 包車</span>
-                <div class="spot-name">鎮海一日遊 (余佐川/慶和車站)</div>
-                <p class="spot-desc">走進櫻花雨中。午餐黃牛Jang舍，晚上貝殼代表預約 ✅。</p>
+                <div class="spot-name">松林公園</div>
+                <br>
+                <p class="spot-desc">結合松樹林與海景的休憩公園。園內有步道與觀景區，適合散步、看海與放鬆。環境清幽，是當地人喜愛的散心地點。</p>
             </div>
         </div>
     </a>
-
-    <div class="day-banner">4/4 (六) 南浦、棉被與炸雞</div>
-    <a href="#" class="spot-link">
+    <a class="spot-link">
         <div class="spot-row">
+            <img class="spot-img" src="https://search.pstatic.net/common/?src=https%3A%2F%2Fpup-review-phinf.pstatic.net%2FMjAyNjAyMDhfMTIx%2FMDAxNzcwNDc5OTQ5NjY3.A5OO5Lvs8bJLmnsStHT7lDrVcmnV9p24AHxxi8bLFdUg.aNvBsfmmXdfQdr-KSxOAWFxUj5l23cdHW_KEfB6Dvbog.JPEG%2F20260205_150849.jpg.jpg%3Ftype%3Dw1500_60_sharpen">
             <div class="spot-info">
-                <div class="spot-name">影島開橋、李在模披薩 & 棉被 168</div>
-                <p class="spot-desc">14:00 觀看大橋升起，採購釜山棉被，晚餐品嚐故鄉全雞炸雞。</p>
+                <div class="spot-name">冬柏島</div>
+                <br>
+                <p class="spot-desc">欣賞海景與廣安大橋的熱門散步景點。島上有環海步道與觀景台，春天可見山茶花盛開。氣氛悠閒，很適合傍晚來看夕陽。</p>
             </div>
         </div>
     </a>
-    <a href="#" class="spot-link">
+    <a class="spot-link">
         <div class="spot-row">
-            <img class="spot-img" src="https://images.unsplash.com/photo-1583261623126-267926992d1f?w=800">
+            <img class="spot-img" src="https://search.pstatic.net/common/?src=https%3A%2F%2Fpup-review-phinf.pstatic.net%2FMjAyNjAxMjNfMjQ5%2FMDAxNzY5MTEwNzk4OTY3.0YKc-11qCsRsrIUlxAmhxhxuEJ4IhsbYm1b4LZC8ByYg.cbPfAu0PGIw33jjY0RFDAusJQZ2xJuKoNvfAwfc43LQg.JPEG%2F20260121_172659.jpg.jpg%3Ftype%3Dw1500_60_sharpen">
             <div class="spot-info">
-                <div class="spot-name">白淺灘文化村 & Arte Museum</div>
-                <p class="spot-desc">在海邊文化村漫步，體驗高科技沉浸式藝術展。</p>
+                <div class="spot-name">海雲台海水浴場</div>
+                <br>
+                <p class="spot-desc">釜山最知名的海灘之一，擁有寬廣沙灘與熱鬧海岸氛圍。夏季吸引大量遊客戲水、日光浴與參加海洋活動。周邊餐廳與咖啡廳林立，是來釜山必訪景點。</p>
             </div>
         </div>
     </a>
-
-    <div class="day-banner">4/5 (日) 三樂公園終章</div>
-    <a href="#" class="spot-link">
+    <a href="https://naver.me/GYC9kRdR" class="spot-link" target="_blank">
         <div class="spot-row">
-            <img class="spot-img" src="https://images.unsplash.com/photo-1524413840807-0c3cb6fa808d?w=800">
+            <img class="spot-img" src="https://search.pstatic.net/common/?src=http%3A%2F%2Fblogfiles.naver.net%2FMjAyNTEyMjBfMjAy%2FMDAxNzY2MjEyODQwMzc5.Jkxq0TB-hSjd4qvh3fsmhGvJ4d5YUojlNYt98n_vbgQg.FVGa-A-3XkNUTPRFeSaedf3CMJYskLEAOgwLlfgd9WUg.JPEG%2F5.jpg">
             <div class="spot-info">
-                <div class="spot-name">三樂生態公園 & 荒嶺山夜景</div>
-                <p class="spot-desc">穿梭櫻花隧道。最後在樂天百貨大採購，登上荒嶺山俯瞰全景。</p>
+                <div class="spot-name">古來思魚糕</div>
+                <br>
+                <p class="spot-desc">釜山知名的魚糕專賣店，歷史悠久。主打各式手工魚糕與伴手禮禮盒，口味多樣、口感Q彈。來釜山旅遊時很適合買來當特色名產。</p>
+            </div>
+        </div>
+    </a>
+    <a href="https://naver.me/54LbVVL3" class="spot-link" target="_blank">
+        <div class="spot-row">
+            <img class="spot-img" src="https://search.pstatic.net/common/?src=https%3A%2F%2Fpup-review-phinf.pstatic.net%2FMjAyNjAyMThfMTY4%2FMDAxNzcxNDAwOTQ0NDY0.po5Q9UufFX8xF8xPVrnNk2ScrxBuFn7LblTMMsvDaeQg.BRKzRI6kmXgusgqJI3-XklnHfPqIU4E-agIM3kdNMTkg.JPEG%2FE7DD6A4C-046F-4F7B-B103-685C1CBDC39E.jpeg%3Ftype%3Dw1500_60_sharpen">
+            <div class="spot-info">
+                <div class="spot-name">SANGCOOKINE</div>
+                <br>
+                <p class="spot-desc">熱門傳統小吃店，招牌是辣炒年糕與魚板、飯捲等韓式街頭美食。以年糕Q彈、辣醬香辣著稱，是當地人和遊客都愛排隊品嚐的經典小吃。</p>
             </div>
         </div>
     </a>
