@@ -114,7 +114,7 @@
         .spot-img { width: 100%; height: 220px; object-fit: cover; }
         @media (min-width: 768px) { .spot-img { width: 35%; height: auto; } }
 
-        .spot-info { padding: 30px; flex: 1; display: flex; flex-direction: column; justify-content: center; }
+        .info { padding: 30px; flex: 1; display: flex; flex-direction: column; justify-content: center; }
         
         .time-tag {
             background: var(--accent-pink);
@@ -127,8 +127,101 @@
             width: fit-content;
         }
 
-        .spot-name { font-size: 1.4rem; color: var(--sky-blue-main); margin-bottom: 10px; font-weight: bold; }
+        .title { font-size: 1.4rem; color: var(--sky-blue-main); margin-bottom: 10px; font-weight: bold; }
         .spot-desc { font-size: 1rem; line-height: 1.8; color: #555; margin: 0; }
+
+        /* 步行連接資訊 */
+        .connection-node {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            margin: -15px 0 15px 0; /* 縮小上下間距，讓卡片看起來有連接感 */
+            position: relative;
+            z-index: 1;
+        }
+
+        .walk-tag {
+            background: white;
+            border: 1px solid var(--steel-blue);
+            color: var(--steel-blue);
+            padding: 3px 12px;
+            border-radius: 20px;
+            font-size: 1rem;
+            font-weight: bold;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.05);
+        }
+
+        /* 交通運輸專用樣式 */
+        .transport-link { text-decoration: none; color: inherit; display: block; margin-bottom: 30px; cursor: pointer; }
+
+        .transport-card {
+            background: var(--glass-white);
+            border-radius: 20px;
+            padding: 20px;
+            margin-bottom: 30px;
+            display: flex;
+            align-items: center;
+            gap: 100px;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.05);
+        }
+
+        .transport-link:hover .transport-card {
+            transform: translateY(-5px);
+            background: rgba(255, 255, 255, 0.98);
+            border: 1px solid var(--sky-blue-main);
+        }
+
+        .transport-icon {
+            margin-left: 100px;
+            font-size: 3.33rem;
+            background: white;
+            width: 100px;
+            height: 100px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border-radius: 50%;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+        }
+
+        .transport-time-group {
+            display: flex;
+            align-items: center;
+            margin-top: 8px;
+        }
+
+        .time-box {
+            text-align: center;
+        }
+
+        .time-val { font-size: 1.5rem; font-weight: bold; color: #333; }
+        .time-loc { font-size: 1rem; color: #777; }
+
+        .time-arrow {
+            flex: 1;
+            text-align: center;
+            position: relative;
+            margin: 0 15px;
+            color: var(--steel-blue);
+        }
+
+        .time-arrow::after {
+            content: "➔";
+            font-size: 3rem;
+        }
+
+        .duration-tag {
+            position: absolute;
+            top: -18px;
+            left: 50%;
+            transform: translateX(-50%);
+            font-size: 1rem;
+            color: var(--steel-blue);
+            white-space: nowrap;
+        }
 
         footer {
             background: rgba(255, 255, 255, 0.7);
@@ -164,23 +257,178 @@
 <div class="container">
 
     <div class="day-banner" id="day1">3/28 (六) ✈️</div>
+    <a class="transport-link">
+        <div class="transport-card">
+            <div class="transport-icon">🚄</div>
+            <div class="info">
+                <div class="title">台灣高鐵 628</div>
+                <br>
+                <div class="transport-time-group">
+                    <div class="time-box">
+                        <div class="time-val">10:48</div>
+                        <div class="time-loc">台南</div>
+                    </div>
+                    <div class="time-arrow"><span class="duration-tag">1小時21分鐘</span></div>
+                    <div class="time-box">
+                        <div class="time-val">12:09</div>
+                        <div class="time-loc">桃園</div>
+                    </div>
+                </div>
+                <br>
+                <div class="transport-time-group">
+                    <div class="time-box">
+                        <div class="time-val">11:32</div>
+                        <div class="time-loc">台中</div>
+                    </div>
+                    <div class="time-arrow"><span class="duration-tag">37分鐘</span></div>
+                    <div class="time-box">
+                        <div class="time-val">12:09</div>
+                        <div class="time-loc">桃園</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </a>
+    <div class="connection-node">
+        <div class="walk-tag">走路 5 分鐘</div>
+    </div>
+    <a class="transport-link">
+        <div class="transport-card">
+            <div class="transport-icon">🚇</div>
+            <div class="info">
+                <div class="title">桃園捷運</div>
+                <span class="time-tag">悠遊卡</span>
+                <br>
+                <div class="transport-time-group">
+                    <div class="time-box">
+                        <div class="time-val">12:17</div>
+                        <div class="time-loc">高鐵桃園站</div>
+                    </div>
+                    <div class="time-arrow"><span class="duration-tag">19分鐘</span></div>
+                    <div class="time-box">
+                        <div class="time-val">12:36</div>
+                        <div class="time-loc">機場第一航廈</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </a>
+    <a class="spot-link">
+        <div class="spot-row">
+            <img class="spot-img" src="https://www.taoyuan-airport.com/api/imagecrop/coverImage/7666CD75-3195-F011-BC16-0050569094FE">
+            <div class="info">
+                <div class="title">異饌小廚</div>
+                <br>
+                <p class="spot-desc">販售南洋風味創意料理、火鍋與套餐等。</p>
+                <br>
+                <p class="spot-desc">📍 第一航廈-B1</p>
+            </div>
+        </div>
+    </a>
+    <a class="transport-link">
+        <div class="transport-card">
+            <div class="transport-icon">✈️</div>
+            <div class="info">
+                <div class="title">台灣虎航 IT606</div>
+                <span class="time-tag">14:20托運</span>
+                <br>
+                <div class="transport-time-group">
+                    <div class="time-box">
+                        <div class="time-val">16:50</div>
+                        <div class="time-loc">TPE</div>
+                    </div>
+                    <div class="time-arrow"><span class="duration-tag">2小時15分鐘</span></div>
+                    <div class="time-box">
+                        <div class="time-val">20:05</div>
+                        <div class="time-loc">PUS</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </a>
+    <div class="connection-node">
+        <div class="walk-tag">走路 4 分鐘</div>
+    </div>
+    <a class="transport-link">
+        <div class="transport-card">
+            <div class="transport-icon">🚈</div>
+            <div class="info">
+                <div class="title">釜山金海輕軌</div>
+                <span class="time-tag">儲值Tmoney</span>
+                <br>
+                <p class="spot-desc">西釜山流通地區站方向 快速換乘1-1</p>
+                <br>
+                <div class="transport-time-group">
+                    <div class="time-box">
+                        <div class="time-val">機場站</div>
+                        <div class="time-loc">1號出口</div>
+                    </div>
+                    <div class="time-arrow"><span class="duration-tag">7分鐘</span></div>
+                    <div class="time-box">
+                        <div class="time-val">沙上站</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </a>
+    <div class="connection-node">
+        <div class="walk-tag">走路 6 分鐘</div>
+    </div>
+    <a class="transport-link">
+        <div class="transport-card">
+            <div class="transport-icon">🚇</div>
+            <div class="info">
+                <div class="title">2號線</div>
+                <br>
+                <p class="spot-desc">甘田站方向 快速下車5-2</p>
+                <br>
+                <div class="transport-time-group">
+                    <div class="time-box">
+                        <div class="time-val">沙上站</div>
+                    </div>
+                    <div class="time-arrow"><span class="duration-tag">33分鐘</span></div>
+                    <div class="time-box">
+                        <div class="time-val">金蓮山站</div>
+                        <div class="time-loc">1號出口</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </a>
+    <div class="connection-node">
+        <div class="walk-tag">走路 11 分鐘</div>
+    </div>
+    <a class="spot-link">
+        <div class="spot-row">
+            <img class="spot-img" src="https://search.pstatic.net/common/?src=https%3A%2F%2Fpup-review-phinf.pstatic.net%2FMjAyNTAzMDZfMjIy%2FMDAxNzQxMTkxMzA1MDAy.Vliq79Qm5CEA6nYtQwOmDjItbsZSSlDzEV8qDezLNVIg.k2vvKuzKNI6f35vEJ7FmQwc6PV1UFPcjWOAvAPCohQcg.JPEG%2FIMG_4199.jpeg%3Ftype%3Dw1500_60_sharpen">
+            <div class="info">
+                <div class="title">Stay Moment</div>
+            </div>
+        </div>
+    </a>
+    <div class="connection-node">
+        <div class="walk-tag">走路 6 分鐘</div>
+    </div>
     <a href="https://naver.me/G4Wo3D8L" class="spot-link" target="_blank">
         <div class="spot-row">
             <img class="spot-img" src="https://search.pstatic.net/common/?src=https%3A%2F%2Fldb-phinf.pstatic.net%2F20240313_20%2F1710297487847Jrq0E_JPEG%2F001.jpg">
-            <div class="spot-info">
-                <div class="spot-name">釜山土生土長豬肉湯飯</div>
+            <div class="info">
+                <div class="title">釜山土生土長豬肉湯飯</div>
                 <br>
                 <p class="spot-desc">韓國釜山代表性的在地美食。以長時間熬煮的豬骨湯為底，加入切片豬肉與內臟，湯頭濃郁不油膩，搭配白飯一同食用，附上韭菜、蝦醬、辣醬與泡菜，依喜好自行調味。</p>
             </div>
         </div>
     </a>
+    <div class="connection-node">
+        <div class="walk-tag">走路 6 分鐘回民宿</div>
+    </div>
 
     <div class="day-banner" id="day2">3/29 (日) 五六島＋東萊</div>
     <a href="https://naver.me/GeUiQN33" class="spot-link" target="_blank">
         <div class="spot-row">
             <img class="spot-img" src="https://search.pstatic.net/common/?src=https%3A%2F%2Fldb-phinf.pstatic.net%2F20251110_127%2F1762755631431dK7SQ_JPEG%2Fjikji.jpg">
-            <div class="spot-info">
-                <div class="spot-name">FOCACCIA FOREST</div>
+            <div class="info">
+                <div class="title">FOCACCIA FOREST</div>
                 <br>
                 <p class="spot-desc">人氣早午餐與烘焙店，以現烤佛卡夏聞名。店內主打各式創意佛卡夏三明治，搭配新鮮蔬菜、起司與肉類，口感外酥內軟、香氣十足。整體裝潢走溫馨自然風格，帶有森林系氛圍，適合早午餐、輕食或悠閒下午茶時光。</p>
             </div>
@@ -189,8 +437,8 @@
     <a class="spot-link">
         <div class="spot-row">
             <img class="spot-img" src="https://www.jumpman.tw/wp-content/uploads/joomla/1561/20190330-DSC07646.jpg">
-            <div class="spot-info">
-                <div class="spot-name">南川洞櫻花街</div>
+            <div class="info">
+                <div class="title">南川洞櫻花街</div>
                 <br>
                 <p class="spot-desc">當地著名的賞櫻景點。每年約3月底至4月初櫻花盛開時，整條街道形成粉色櫻花隧道，景色浪漫迷人。由於鄰近海邊與住宅區，氛圍相對悠閒，少了大型觀光景點的人潮，更有在地生活感，是春季到釜山旅遊不可錯過的賞花地點之一。</p>
             </div>
@@ -199,8 +447,8 @@
     <a class="spot-link">
         <div class="spot-row">
             <img class="spot-img" src="https://search.pstatic.net/common/?src=https%3A%2F%2Fpup-review-phinf.pstatic.net%2FMjAyNTAzMjNfMTM4%2FMDAxNzQyNzI2MDg4NDA4.0YmzjIBxf_PbzItqI3JHbbJtb5qfWVLXMqLICnmUYiQg.ucKYp_HJDyA83-rO4IZMjzuMOeZMwF0Yh96MNbAZovAg.JPEG%2F20250323_072632.jpg.jpg%3Ftype%3Dw1500_60_sharpen">
-            <div class="spot-info">
-                <div class="spot-name">五六島迎日公園</div>
+            <div class="info">
+                <div class="title">五六島迎日公園</div>
                 <br>
                 <p class="spot-desc">欣賞海景與日出的熱門景點。公園面向著名的五六島，天氣晴朗時可清楚看到海上岩島景觀。這裡也是迎接新年的著名地點，許多遊客會特地前來觀看日出，寓意嶄新的開始。</p>
             </div>
@@ -209,8 +457,8 @@
     <a class="spot-link">
         <div class="spot-row">
             <img class="spot-img" src="https://res.klook.com/image/upload/q_85/c_fill,w_1360/fl_lossy.progressive/q_auto/blogtw/2019/10/20728360_1478690745571642_980107631793670650_n.jpg">
-            <div class="spot-info">
-                <div class="spot-name">五六島天空步道</div>
+            <div class="info">
+                <div class="title">五六島天空步道</div>
                 <br>
                 <p class="spot-desc">位於五六島迎日公園內，是當地知名的海景景點。步道採U字形設計，地面為透明強化玻璃，延伸至海岸懸崖外側，能直接俯瞰腳下的海浪與岩石，視覺效果震撼。免費開放入場（需穿戴鞋套），是釜山欣賞海景與拍照打卡的熱門地標之一。</p>
             </div>
@@ -219,8 +467,8 @@
     <a href="https://naver.me/5mI0AdxF" class="spot-link" target="_blank">
         <div class="spot-row">
             <img class="spot-img" src="https://search.pstatic.net/common/?src=https%3A%2F%2Fblogfiles.pstatic.net%2FMjAyNTEwMDhfOTgg%2FMDAxNzU5OTExNTY3MjA0.siJixTunmE6WqXUQ96mQzVludt-mXc9B1Htbcrg-llYg.absqqgrepNbe8k40uv0BYHxC_Hnzks2U9ZVe4MCIB9og.JPEG%2FIMG＿7680.jpg%2F900x900">
-            <div class="spot-info">
-                <div class="spot-name">MOMOS</div>
+            <div class="info">
+                <div class="title">MOMOS</div>
                 <br>
                 <p class="spot-desc">韓國釜山最具代表性的精品咖啡品牌之一，也是韓國咖啡迷心中的朝聖地。創立於 2007 年，以專業烘豆與高品質手沖咖啡聞名，曾在國際咖啡賽事中獲獎，提升了品牌知名度。店內空間多為簡約現代風格，主打單品咖啡與自家烘焙咖啡豆，也販售甜點與輕食。無論是咖啡品質或品牌地位，MOMOS 都被視為釜山精品咖啡的代表之一。</p>
             </div>
@@ -229,8 +477,8 @@
     <a href="https://naver.me/x3HLlCrE" class="spot-link" target="_blank">
         <div class="spot-row">
             <img class="spot-img" src="https://search.pstatic.net/common/?src=https%3A%2F%2Fnaverbooking-phinf.pstatic.net%2F20220927_249%2F1664267421711Ej1ae_JPEG%2FIMG_4483-1.jpg">
-            <div class="spot-info">
-                <div class="spot-name">外食365巨蟹好天</div>
+            <div class="info">
+                <div class="title">外食365・帝王蟹好日子</div>
                 <br>
                 <p class="spot-desc">主打各式以螃蟹與甲殼類為特色的料理。這間餐廳以新鮮的螃蟹菜餚為招牌，提供多種烹調方式的蟹料理，是海鮮愛好者的熱門選擇。餐點口味受到當地食客好評，適合想嘗試釜山海鮮美食的旅人前往。</p>
             </div>
@@ -239,8 +487,8 @@
     <a class="spot-link">
         <div class="spot-row">
             <img class="spot-img" src="https://search.pstatic.net/common/?src=https%3A%2F%2Fpup-review-phinf.pstatic.net%2FMjAyNTA0MTZfMjc0%2FMDAxNzQ0ODAyNDMxMzI2.KRVnY2WafCemU44x4iLNmyGb7WAkuEZicompw9EX3Rgg.Zoq8MtnbP9pTEl9raa2UPKtgLnKEJsFdlcqn7sVI9ywg.JPEG%2F20250415_115243.jpg.jpg%3Ftype%3Dw1500_60_sharpen">
-            <div class="spot-info">
-                <div class="spot-name">東萊邑城</div>
+            <div class="info">
+                <div class="title">東萊邑城</div>
                 <br>
                 <p class="spot-desc">朝鮮時代的重要城郭遺址。最早建於高麗時期，後在朝鮮王朝時重建與擴建，具有軍事防禦功能。1592年壬辰倭亂期間，這裡曾發生激烈戰役，是韓國歷史上的重要戰場之一。現今部分城牆與城門已復原，園區綠意盎然，春季櫻花盛開時特別美麗，也常舉辦歷史文化活動，適合喜歡歷史古蹟與散步賞景的旅人造訪。</p>
             </div>
@@ -249,8 +497,8 @@
     <a href="https://naver.me/GmbMzCRp" class="spot-link" target="_blank">
         <div class="spot-row">
             <img class="spot-img" src="https://search.pstatic.net/common/?src=https%3A%2F%2Fblogfiles.pstatic.net%2FMjAyNTAxMjhfMTEw%2FMDAxNzM4MDYyMzI5ODMx.tdhYwkGaSwON89FbJlsljWeU0LB0snWyVOC4poOyM60g.lLy9H_xCUsGqYUnBTdzECaK3Cy_4kQJ4uJS8t13O45wg.JPEG%2F신가네_(23).jpg%2F1536x2048">
-            <div class="spot-info">
-                <div class="spot-name">Singa’s糖餅紫菜包飯炒年糕</div>
+            <div class="info">
+                <div class="title">新家糖餅・飯捲・辣炒年糕</div>
                 <br>
                 <p class="spot-desc">一家人氣韓式街頭小吃店，以超平價經典小吃為主、從早餐到晚餐都能吃到傳統味。這裡就是一站式嚐遍韓國經典路邊小吃的好地方，味道樸實、價格友善，非常適合想體驗地道韓式小吃的旅人。</p>
             </div>
@@ -259,8 +507,8 @@
     <a class="spot-link">
         <div class="spot-row">
             <img class="spot-img" src="https://i0.wp.com/journey.tw/wp-content/uploads/2023-04-02-220050-15.jpg?ssl=1">
-            <div class="spot-info">
-                <div class="spot-name">溫泉川</div>
+            <div class="info">
+                <div class="title">溫泉川</div>
                 <br>
                 <p class="spot-desc">當地著名的市區河川與散步景點。河道兩旁規劃完善，有自行車道與步道，四季景色各有特色。春天櫻花盛開時形成櫻花步道，吸引許多市民與遊客前來賞花。「溫泉川」名稱來自東萊溫泉地區，周邊也有溫泉設施與住宅區，整體氛圍悠閒，是體驗釜山市民日常生活的好去處。</p>
             </div>
@@ -269,8 +517,8 @@
     <a class="spot-link">
         <div class="spot-row">
             <img class="spot-img" src="https://search.pstatic.net/common/?src=https%3A%2F%2Fldb-phinf.pstatic.net%2F20210208_186%2F1612760142274HnOmz_JPEG%2FXuKxRHwuy9jhO5UZ4gBHTv_m.jpeg.jpg">
-            <div class="spot-info">
-                <div class="spot-name">E-MART TRADERS</div>
+            <div class="info">
+                <div class="title">E-MART TRADERS</div>
                 <span class="time-tag">買韓牛</span>
                 <br>
                 <p class="spot-desc">大型倉儲型折扣購物超市。由韓國最大零售連鎖體系 E-Mart 旗下品牌 Traders 經營，是個結合了傳統大賣場與倉儲式量販特色的購物場所。這類店鋪主打 大量、低價、多種類商品，賣場空間寬敞，商品陳列多以批量、大包裝為主。類似 韓版Costco 但不像 Costco 需要會員資格才能購物，在 Emart Traders 店，不需要付費會員即可進入消費。</p>
@@ -280,8 +528,8 @@
     <a href="https://naver.me/5owqNDrY" class="spot-link" target="_blank">
         <div class="spot-row">
             <img class="spot-img" src="https://search.pstatic.net/common/?src=https%3A%2F%2Fldb-phinf.pstatic.net%2F20251121_53%2F1763701700217y90gn_JPEG%2FIMG_0034.jpeg">
-            <div class="spot-info">
-                <div class="spot-name">Seasons</div>
+            <div class="info">
+                <div class="title">Seasons</div>
                 <br>
                 <p class="spot-desc">招牌是四層草莓蛋糕的咖啡廳。提供各種咖啡、季節性飲品與甜點，環境適合坐下來喝杯飲料、享受海景與輕食。</p>
             </div>
@@ -292,8 +540,8 @@
     <a href="https://naver.me/5WOQqri9" class="spot-link" target="_blank">
         <div class="spot-row">
             <img class="spot-img" src="https://search.pstatic.net/common/?src=https%3A%2F%2Fldb-phinf.pstatic.net%2F20240902_217%2F1725257120755OOAOp_JPEG%2FIMG_5939.jpeg">
-            <div class="spot-info">
-                <div class="spot-name">All Sunday</div>
+            <div class="info">
+                <div class="title">All Sunday</div>
                 <br>
                 <p class="spot-desc">熱門貝果店，當地人和觀光客都會排隊。貝果口味多、配料豐富，還有咖啡可以配，面對海灘吃超愜意。</p>
             </div>
@@ -302,8 +550,8 @@
     <a class="spot-link">
         <div class="spot-row">
             <img class="spot-img" src="https://search.pstatic.net/common/?src=https%3A%2F%2Fpup-review-phinf.pstatic.net%2FMjAyNjAyMTVfOTQg%2FMDAxNzcxMTIyNjE4NDUx.BMQ5ZfshuGAOPvavA4QV9U7MQ2XPkEWLsHpYhOb4Z9Yg.pmVm6A5heQF6QuIJL5uo37f9zQ45m9aV7CwY9jwSruUg.JPEG%2F20260215_101251.jpg.jpg%3Ftype%3Dw1500_60_sharpen">
-            <div class="spot-info">
-                <div class="spot-name">五郎台</div>
+            <div class="info">
+                <div class="title">五郎台</div>
                 <br>
                 <p class="spot-desc">欣賞東海海景的熱門景點。這裡以海中岩石、白色燈塔與涼亭景色聞名，海浪拍打岩岸的畫面十分壯觀。清晨日出特別迷人，也適合沿著海岸步道散步放鬆。</p>
             </div>
@@ -312,8 +560,8 @@
     <a class="spot-link">
         <div class="spot-row">
             <img class="spot-img" src="https://search.pstatic.net/common/?src=https%3A%2F%2Fldb-phinf.pstatic.net%2F20250916_70%2F1757979606600Ldz9a_PNG%2F%25B7%25E7%25C1%25F6.png">
-            <div class="spot-info">
-                <div class="spot-name">Skyline Luge</div>
+            <div class="info">
+                <div class="title">Skyline Luge</div>
                 <br>
                 <p class="spot-desc">戶外刺激遊樂體驗景點。會先搭乘吊椅到高處，再坐上重力驅動的特殊滑車沿著4條彎道滑下，全長約 2.4 公里，速度與視野都很過癮。園區也有高空滑索，可以俯瞰周邊山海景色，是結合冒險與風景的熱門活動。</p>
             </div>
@@ -322,8 +570,8 @@
     <a class="spot-link">
         <div class="spot-row">
             <img class="spot-img" src="https://search.pstatic.net/common/?src=https%3A%2F%2Fpup-review-phinf.pstatic.net%2FMjAyNjAyMTRfMjIw%2FMDAxNzcxMDU1MDQ2NDU1.gHdK4YJaoeOUj52yKHz0C6jvr8CSsaWYjqSDOjuS61Yg.ykwCWBbHO_cS2n797YlL7SBI6yY1mWOtUi2TNmS2J6Mg.JPEG%2F20260214_135156.jpg.jpg%3Ftype%3Dw1500_60_sharpen">
-            <div class="spot-info">
-                <div class="spot-name">海東龍宮寺</div>
+            <div class="info">
+                <div class="title">海東龍宮寺</div>
                 <br>
                 <p class="spot-desc">建在懸崖上面向大海。寺廟與海景融合，日出特別壯觀，是拍照與散步的熱門景點。</p>
             </div>
@@ -332,8 +580,8 @@
     <a class="spot-link">
         <div class="spot-row">
             <img class="spot-img" src="https://search.pstatic.net/common/?src=https%3A%2F%2Fldb-phinf.pstatic.net%2F20221014_299%2F1665727955941OL6CN_JPEG%2F%25C7%25C1%25B8%25AE%25B9%25CC%25BE%25F6%25BE%25C6%25BF%25EF%25B7%25BF_%25B5%25BF%25BA%25CE%25BB%25EA1_%25281%2529.jpg">
-            <div class="spot-info">
-                <div class="spot-name">LOTTE PREMIUM OUTLETS</div>
+            <div class="info">
+                <div class="title">LOTTE PREMIUM OUTLETS</div>
                 <br>
                 <p class="spot-desc">大型名牌折扣購物中心。這裡有國際及韓國品牌，價格優惠，適合購物愛好者。園區寬敞，也有餐飲區和咖啡廳，方便逛上一整天。</p>
             </div>
@@ -342,8 +590,8 @@
     <a href="https://naver.me/IMyGdVr6" class="spot-link" target="_blank">
         <div class="spot-row">
             <img class="spot-img" src="https://search.pstatic.net/common/?src=https%3A%2F%2Fldb-phinf.pstatic.net%2F20230207_177%2F1675725226987V8hRJ_JPEG%2FKakaoTalk_20221104_155720181.jpg">
-            <div class="spot-info">
-                <div class="spot-name">尾浦家</div>
+            <div class="info">
+                <div class="title">尾浦家</div>
                 <br>
                 <p class="spot-desc">很受歡迎的醬海鮮餐廳，以大份量的醃製海鮮套餐（像是醬蟹、各種海鮮拼盤）和釜飯、小菜聞名，風味鮮美、份量足。店裡常常需要排隊或預約，是喜歡海鮮料理的遊客推薦的美食之一。</p>
             </div>
@@ -352,8 +600,8 @@
     <a href="https://naver.me/57VZtyx3" class="spot-link" target="_blank">
         <div class="spot-row">
             <img class="spot-img" src="https://search.pstatic.net/common/?src=https%3A%2F%2Fldb-phinf.pstatic.net%2F20240207_191%2F1707293543299O12kn_JPEG%2FDSC06193-5.jpg">
-            <div class="spot-info">
-                <div class="spot-name">水月鏡花</div>
+            <div class="info">
+                <div class="title">水月鏡花</div>
                 <br>
                 <p class="spot-desc">特色韓屋風咖啡廳，主打各式茶飲、傳統點心與咖啡。店內可透過大窗眺望整片海景和海岸列車經過的畫面，氛圍優雅寧靜，是喝下午茶、拍照打卡的熱門景點。</p>
             </div>
@@ -362,8 +610,8 @@
     <a class="spot-link">
         <div class="spot-row">
             <img class="spot-img" src="https://search.pstatic.net/common/?src=https%3A%2F%2Fpup-review-phinf.pstatic.net%2FMjAyNjAyMTVfOTQg%2FMDAxNzcxMTI3NDI3NTQx.pRdoJ6gxdrdOJJccnBWwcI33h5MgvrWQ1d91oNQgnksg.UBNW0FMuiY9S3eT7GhD5nRRXrnkKAXIX2BMyPRz2uH8g.JPEG%2F1000069253.jpg.jpg%3Ftype%3Dw1500_60_sharpen">
-            <div class="spot-info">
-                <div class="spot-name">松亭海水浴場</div>
+            <div class="info">
+                <div class="title">松亭海水浴場</div>
                 <br>
                 <p class="spot-desc">氣氛較悠閒的海灘。這裡以乾淨沙灘與平穩海浪聞名，適合衝浪與散步。相比海雲台人潮較少，氛圍更放鬆自在。</p>
             </div>
@@ -372,8 +620,8 @@
     <a href="https://naver.me/GEXhAEvs" class="spot-link" target="_blank">
         <div class="spot-row">
             <img class="spot-img" src="https://search.pstatic.net/common/?src=https%3A%2F%2Fldb-phinf.pstatic.net%2F20250915_244%2F1757926453996Yo6Vq_PNG%2F%25C1%25A6%25B8%25F1%25C0%25BB_%25C0%25D4%25B7%25C2%25C7%25D8%25C1%25D6%25BC%25BC%25BF%25E4..png">
-            <div class="spot-info">
-                <div class="spot-name">達人牛胃</div>
+            <div class="info">
+                <div class="title">達人牛大腸</div>
                 <br>
                 <p class="spot-desc">人氣韓牛烤肉餐廳，主打新鮮牛內臟與牛肉料理。肉質鮮嫩、份量實在，搭配韓式小菜風味十足。適合想體驗道地韓式燒肉的饕客。</p>
             </div>
@@ -382,8 +630,8 @@
     <a href="https://naver.me/5wWelhk7" class="spot-link" target="_blank">
         <div class="spot-row">
             <img class="spot-img" src="https://search.pstatic.net/common/?src=http%3A%2F%2Fblogfiles.naver.net%2FMjAyNjAxMDZfMTc1%2FMDAxNzY3NjgxMTc4MDAx.SvD6l-UUzxYViMfo6HHDn52ApdCrVK6RvIVGqHasPqMg.dyEWkrgROr7I12efP2oOMX2mzeSP0lFs5kxg0rRqrmMg.JPEG%2FKakaoTalk_20251230_205528843_02.jpg">
-            <div class="spot-info">
-                <div class="spot-name">海雲台名品糖餅</div>
+            <div class="info">
+                <div class="title">海雲台名品糖餅</div>
                 <br>
                 <p class="spot-desc">海雲台市場內的人氣小吃攤。主打現炸黑糖堅果糖餅，外酥內軟、甜而不膩。逛市場時來一份熱騰騰的糖餅，是經典釜山味道。</p>
             </div>
@@ -394,8 +642,8 @@
     <a href="https://naver.me/5b0e4uBU" class="spot-link" target="_blank">
         <div class="spot-row">
             <img class="spot-img" src="https://search.pstatic.net/common/?src=http%3A%2F%2Fblogfiles.naver.net%2FMjAyNjAxMTBfMjI1%2FMDAxNzY4MDQzNDY1NjY3.fk96M3XJAFVY5uvbb_YgL1FVYYZYkgnnA5_I9Yj1q0Yg._YJQMJFkMbpSd5xqFJo9O2gm2-zzsMCXLUrDbEGCNVMg.JPEG%2FIMG_9422.jpeg">
-            <div class="spot-info">
-                <div class="spot-name">BUSANDANG</div>
+            <div class="info">
+                <div class="title">BUSANDANG</div>
                 <br>
                 <p class="spot-desc">受歡迎的伴手禮甜點店，主打融合在地元素的創意糕點。店內設計文青簡約，適合拍照打卡。很適合買來當釜山旅遊紀念或送禮。</p>
             </div>
@@ -404,8 +652,8 @@
     <a class="spot-link">
         <div class="spot-row">
             <img class="spot-img" src="https://search.pstatic.net/common/?src=https%3A%2F%2Fpup-review-phinf.pstatic.net%2FMjAyNTA2MTdfMTc5%2FMDAxNzUwMTcyMzMxMjE1.t1ZcQhNHmF9hql84kPdAY-Uxkh7AYC0Vj5A0qCI2oW8g.YdgqV-5ezJoDcitTRFFn3i9aPAGOH8iuCjxBMF6kWSog.JPEG%2FSE-8b580421-4b85-11f0-81e7-2ffb4a1c511a.jpg.jpg%3Ftype%3Dw1500_60_sharpen">
-            <div class="spot-info">
-                <div class="spot-name">松林公園</div>
+            <div class="info">
+                <div class="title">松林公園</div>
                 <br>
                 <p class="spot-desc">結合松樹林與海景的休憩公園。園內有步道與觀景區，適合散步、看海與放鬆。環境清幽，是當地人喜愛的散心地點。</p>
             </div>
@@ -414,8 +662,8 @@
     <a class="spot-link">
         <div class="spot-row">
             <img class="spot-img" src="https://search.pstatic.net/common/?src=https%3A%2F%2Fpup-review-phinf.pstatic.net%2FMjAyNjAyMDhfMTIx%2FMDAxNzcwNDc5OTQ5NjY3.A5OO5Lvs8bJLmnsStHT7lDrVcmnV9p24AHxxi8bLFdUg.aNvBsfmmXdfQdr-KSxOAWFxUj5l23cdHW_KEfB6Dvbog.JPEG%2F20260205_150849.jpg.jpg%3Ftype%3Dw1500_60_sharpen">
-            <div class="spot-info">
-                <div class="spot-name">冬柏島</div>
+            <div class="info">
+                <div class="title">冬柏島</div>
                 <br>
                 <p class="spot-desc">欣賞海景與廣安大橋的熱門散步景點。島上有環海步道與觀景台，春天可見山茶花盛開。氣氛悠閒，很適合傍晚來看夕陽。</p>
             </div>
@@ -424,8 +672,8 @@
     <a class="spot-link">
         <div class="spot-row">
             <img class="spot-img" src="https://search.pstatic.net/common/?src=https%3A%2F%2Fpup-review-phinf.pstatic.net%2FMjAyNjAxMjNfMjQ5%2FMDAxNzY5MTEwNzk4OTY3.0YKc-11qCsRsrIUlxAmhxhxuEJ4IhsbYm1b4LZC8ByYg.cbPfAu0PGIw33jjY0RFDAusJQZ2xJuKoNvfAwfc43LQg.JPEG%2F20260121_172659.jpg.jpg%3Ftype%3Dw1500_60_sharpen">
-            <div class="spot-info">
-                <div class="spot-name">海雲台海水浴場</div>
+            <div class="info">
+                <div class="title">海雲台海水浴場</div>
                 <br>
                 <p class="spot-desc">釜山最知名的海灘之一，擁有寬廣沙灘與熱鬧海岸氛圍。夏季吸引大量遊客戲水、日光浴與參加海洋活動。周邊餐廳與咖啡廳林立，是來釜山必訪景點。</p>
             </div>
@@ -434,8 +682,8 @@
     <a href="https://naver.me/GYC9kRdR" class="spot-link" target="_blank">
         <div class="spot-row">
             <img class="spot-img" src="https://search.pstatic.net/common/?src=http%3A%2F%2Fblogfiles.naver.net%2FMjAyNTEyMjBfMjAy%2FMDAxNzY2MjEyODQwMzc5.Jkxq0TB-hSjd4qvh3fsmhGvJ4d5YUojlNYt98n_vbgQg.FVGa-A-3XkNUTPRFeSaedf3CMJYskLEAOgwLlfgd9WUg.JPEG%2F5.jpg">
-            <div class="spot-info">
-                <div class="spot-name">古來思魚糕</div>
+            <div class="info">
+                <div class="title">鯨魚牌魚糕</div>
                 <br>
                 <p class="spot-desc">釜山知名的魚糕專賣店，歷史悠久。主打各式手工魚糕與伴手禮禮盒，口味多樣、口感Q彈。來釜山旅遊時很適合買來當特色名產。</p>
             </div>
@@ -444,8 +692,8 @@
     <a href="https://naver.me/54LbVVL3" class="spot-link" target="_blank">
         <div class="spot-row">
             <img class="spot-img" src="https://search.pstatic.net/common/?src=https%3A%2F%2Fpup-review-phinf.pstatic.net%2FMjAyNjAyMThfMTY4%2FMDAxNzcxNDAwOTQ0NDY0.po5Q9UufFX8xF8xPVrnNk2ScrxBuFn7LblTMMsvDaeQg.BRKzRI6kmXgusgqJI3-XklnHfPqIU4E-agIM3kdNMTkg.JPEG%2FE7DD6A4C-046F-4F7B-B103-685C1CBDC39E.jpeg%3Ftype%3Dw1500_60_sharpen">
-            <div class="spot-info">
-                <div class="spot-name">SANGCOOKINE</div>
+            <div class="info">
+                <div class="title">尚國家</div>
                 <br>
                 <p class="spot-desc">熱門傳統小吃店，招牌是辣炒年糕與魚板、飯捲等韓式街頭美食。以年糕Q彈、辣醬香辣著稱，是當地人和遊客都愛排隊品嚐的經典小吃。</p>
             </div>
@@ -454,8 +702,8 @@
     <a class="spot-link">
         <div class="spot-row">
             <img class="spot-img" src="https://search.pstatic.net/common/?src=http%3A%2F%2Fblogfiles.naver.net%2FMjAyMDA5MDRfNDMg%2FMDAxNTk5MjE1NTY2NTgz.fxex5X38LDYOmJgEMnWxllrQWvQsx4ISNWZgFFPttdwg.FskXnODqt2R8jnqYySxpUTFM_RkHPTtQOCGG9Qm-KEEg.JPEG.ckddnjs3506%2F1599215568471.jpg%23900x426">
-            <div class="spot-info">
-                <div class="spot-name">X the SKY</div>
+            <div class="info">
+                <div class="title">X the SKY</div>
                 <br>
                 <p class="spot-desc">高空觀景台景點，位於海雲臺LCT Landmark Tower 98–100樓，是韓國第二高的觀景台。可以搭高速電梯上去俯瞰海雲台沙灘與釜山全景，還有玻璃空中步道、觀景休息區和世界最高星巴克等熱門拍照點。白天、夕陽和夜景都很值得一看。</p>
             </div>
@@ -464,8 +712,8 @@
     <a class="spot-link">
         <div class="spot-row">
             <img class="spot-img" src="https://search.pstatic.net/common/?src=https%3A%2F%2Fpup-review-phinf.pstatic.net%2FMjAyNDAxMDlfODIg%2FMDAxNzA0NzkxODgzNzMz.cHux6apz5v0Y4vV4rwqaB9cYtKdXPwLzO0NvnFaJL9wg.FO8xwJekkyRpOfY9PCt9OcrZSyQWdo0-7Me9458-4LEg.JPEG%2F817EEC86-E115-4DF2-9683-E4BFC746FBBA.jpeg%3Ftype%3Dw1500_60_sharpen">
-            <div class="spot-info">
-                <div class="spot-name">膠囊列車</div>
+            <div class="info">
+                <div class="title">膠囊列車</div>
                 <br>
                 <p class="spot-desc">沿海設計的觀光小型膠囊列車。車廂透明，可邊行駛邊欣賞海景與海岸風光，適合拍照打卡與輕鬆散步式旅遊體驗。</p>
             </div>
@@ -474,8 +722,8 @@
     <a class="spot-link">
         <div class="spot-row">
             <img class="spot-img" src="https://search.pstatic.net/common/?src=https%3A%2F%2Fpup-review-phinf.pstatic.net%2FMjAyNTEyMDFfMTc3%2FMDAxNzY0NTU4MTk5NzM5.mqIMIf6YkjLl1CiroSOimKyQri6fMD_jGid_qr12UKQg.NnqtBLeoeIJbOBRtM0PjKIeq5qgLlVO4RufqvawT3gog.JPEG%2F7ECB80BC-2F4E-49DF-A2BB-FA3706DD5ECC.jpeg%3Ftype%3Dw1500_60_sharpen">
-            <div class="spot-info">
-                <div class="spot-name">踏石展望台</div>
+            <div class="info">
+                <div class="title">踏石展望台</div>
                 <br>
                 <p class="spot-desc">可俯瞰海景與沿岸景致的小型觀景台。環境清幽，設有步道和休憩區，適合散步、拍照和欣賞日落。</p>
             </div>
@@ -484,8 +732,8 @@
     <a class="spot-link">
         <div class="spot-row">
             <img class="spot-img" src="https://search.pstatic.net/common/?src=http%3A%2F%2Fblogfiles.naver.net%2FMjAyNTA5MTBfNzAg%2FMDAxNzU3NDcyODEwODEw.kewpK5Xg6qQ9JeHoA7UkeFTfJqKvwj5Dr-F5DdtTkY4g.CjSg5ttsYYO4Yuf1cDepSvxcI7UKUy0YLZA_ZkLR6p0g.JPEG%2FKakaoTalk_20250910_114103979.jpg">
-            <div class="spot-info">
-                <div class="spot-name">海月展望台</div>
+            <div class="info">
+                <div class="title">海月展望台</div>
                 <br>
                 <p class="spot-desc">眺望海景與沿岸風光的觀景平台。展望台設計簡約，可欣賞日出、海浪與遠方小島景色，是拍照與散步的熱門地點。</p>
             </div>
@@ -494,8 +742,8 @@
     <a class="spot-link">
         <div class="spot-row">
             <img class="spot-img" src="https://search.pstatic.net/common/?src=http%3A%2F%2Fblogfiles.naver.net%2FMjAyNTEwMjhfMzQg%2FMDAxNzYxNjEwNjU1MTMy.pUUDAGw4VYMaWqFdCAcq9AcE0ahPXcWlhSy0153nYbwg.DcTJTXi9M1XHODpNizhXbjExO5SkOWX85mCGZxbqKQQg.JPEG%2F900%25A3%25DF20251020%25A3%25DF114650.jpg">
-            <div class="spot-info">
-                <div class="spot-name">迎月隧道</div>
+            <div class="info">
+                <div class="title">迎月隧道</div>
                 <br>
                 <p class="spot-desc">連接海邊景點的特色隧道。隧道內光線設計美觀，開車或步行經過時能欣賞海岸景致，常被遊客用作拍照打卡點。</p>
             </div>
@@ -504,8 +752,8 @@
     <a href="https://naver.me/FjbntCMH" class="spot-link" target="_blank">
         <div class="spot-row">
             <img class="spot-img" src="https://search.pstatic.net/common/?src=https%3A%2F%2Fldb-phinf.pstatic.net%2F20250601_230%2F1748751460415bJ9fY_JPEG%2FKakaoTalk_Photo_2025-06-01-12-59-17_2.jpeg">
-            <div class="spot-info">
-                <div class="spot-name">Who's who mumu</div>
+            <div class="info">
+                <div class="title">Who's who mumu</div>
                 <br>
                 <p class="spot-desc">熱門手工麵包與咖啡店，以創意麵包、可頌和鹹甜口味點心聞名。店內氣氛溫馨，有的座位可搭配咖啡坐下享用，靠近海邊也很適合當作散步前後的甜點或早餐地點。人氣商品包括蒜香可頌與紅豆／韓式粉粿奶油麵包等創意口味。</p>
             </div>
@@ -514,8 +762,8 @@
     <a class="spot-link">
         <div class="spot-row">
             <img class="spot-img" src="https://damei17.com/wp-content/uploads/2023/11/釜山遊艇體驗-The-Bay101、水營灣遊艇競技場-39.jpg">
-            <div class="spot-info">
-                <div class="spot-name">Yacht Holic</div>
+            <div class="info">
+                <div class="title">Yacht Holic</div>
                 <span class="time-tag">18:30</span>
                 <br>
                 <p class="spot-desc">遊艇體驗公司，提供租船、帆船與海上觀光服務。遊客可在海上欣賞海雲台、冬柏島與廣安大橋景色，享受悠閒海上活動與拍照體驗。</p>
@@ -525,8 +773,8 @@
     <a href="https://naver.me/5k7fNabv" class="spot-link" target="_blank">
         <div class="spot-row">
             <img class="spot-img" src="https://search.pstatic.net/common/?src=https%3A%2F%2Fldb-phinf.pstatic.net%2F20250411_232%2F17443517889350Uspx_JPEG%2FGRP_7408-1.jpg">
-            <div class="spot-info">
-                <div class="spot-name">石雞</div>
+            <div class="info">
+                <div class="title">石雞</div>
                 <br>
                 <p class="spot-desc">以烤雞料理聞名的餐廳。特色是將雞肉以石板烤製，外皮酥脆、肉質鮮嫩。靠近海邊，邊用餐還能欣賞廣安大橋與海景。</p>
             </div>
@@ -537,8 +785,8 @@
     <a class="spot-link">
         <div class="spot-row">
             <img class="spot-img" src="https://search.pstatic.net/common/?src=http%3A%2F%2Fblogfiles.naver.net%2FMjAyNDA0MDNfMjQ3%2FMDAxNzEyMTM0OTE4MDYx.GQr5OZlYr7NTmOSg-nbQ6r4OeH1HgPY4iwtb0FGe2OYg.B6qc6ffMb0gV4MuI8E6xbo_crvQk97YNwvxCwjARliwg.JPEG%2F20240403%25A3%25DF113303.jpg">
-            <div class="spot-info">
-                <div class="spot-name">琴湖江櫻花街</div>
+            <div class="info">
+                <div class="title">琴湖江櫻花街</div>
                 <br>
                 <p class="spot-desc">沿琴湖江的櫻花步道。春天櫻花盛開時形成粉白色花海，適合散步、拍照和賞花，是當地人氣賞櫻景點。</p>
             </div>
@@ -547,8 +795,8 @@
     <a class="spot-link">
         <div class="spot-row">
             <img class="spot-img" src="https://search.pstatic.net/common/?src=https%3A%2F%2Fpup-review-phinf.pstatic.net%2FMjAyNTA3MjFfNjgg%2FMDAxNzUzMDg1OTk2OTMy.U4EUIuZ1o8EtIJzsOSpPlpuq0f4WuOokkf3K0G5uKI4g.oC3-BCg3PeoaoofNnwvMVsNC03EEzCIq2FT2spn1WMwg.JPEG%2F20250607_143847.jpg.jpg%3Ftype%3Dw1500_60_sharpen">
-            <div class="spot-info">
-                <div class="spot-name">慶尚監營公園</div>
+            <div class="info">
+                <div class="title">慶尚監營公園</div>
                 <br>
                 <p class="spot-desc">結合歷史文化與綠地的公園。園內保留古代慶尚監營遺跡，設有步道與休憩區，適合散步、慢跑與拍照，也是了解當地歷史的好去處。</p>
             </div>
@@ -557,8 +805,8 @@
     <a href="https://naver.me/xa5Rx9d8" class="spot-link" target="_blank">
         <div class="spot-row">
             <img class="spot-img" src="https://search.pstatic.net/common/?src=https%3A%2F%2Fldb-phinf.pstatic.net%2F20221019_298%2F1666125908786toJNX_JPEG%2F4365_20221018115224_tqovl.jpg">
-            <div class="spot-info">
-                <div class="spot-name">STARBUCKS</div>
+            <div class="info">
+                <div class="title">STARBUCKS</div>
                 <br>
                 <p class="spot-desc">一家特色星巴克咖啡廳，開在百年韓屋古宅裡，是將傳統建築與現代咖啡文化結合的代表。店內保留韓屋木構與庭院，氛圍古典又舒適，很適合坐下喝杯咖啡、拍照打卡，同時感受大邱的歷史氛圍。</p>
             </div>
@@ -567,8 +815,8 @@
     <a href="https://naver.me/5ssT09dU" class="spot-link" target="_blank">
         <div class="spot-row">
             <img class="spot-img" src="https://search.pstatic.net/common/?src=https%3A%2F%2Fldb-phinf.pstatic.net%2F20151020_266%2F1445341354394I3YJ1_JPEG%2F166966598424716_3.jpeg">
-            <div class="spot-info">
-                <div class="spot-name">半月堂炸雞塊</div>
+            <div class="info">
+                <div class="title">半月堂甜辣炸雞</div>
                 <br>
                 <p class="spot-desc">半月堂商圈，是人氣韓式炸雞小吃店。招牌炸雞塊外酥內嫩，口味多樣，搭配啤酒或汽水很受年輕人喜愛。簡單、快速又好吃，是當地經典宵夜選擇。</p>
             </div>
@@ -577,8 +825,8 @@
     <a href="https://naver.me/GUwSx4fz" class="spot-link" target="_blank">
         <div class="spot-row">
             <img class="spot-img" src="https://search.pstatic.net/common/?src=https%3A%2F%2Fldb-phinf.pstatic.net%2F20230224_247%2F1677221974263WX44n_JPEG%2F1.jpg">
-            <div class="spot-info">
-                <div class="spot-name">Seyeon豆漿</div>
+            <div class="info">
+                <div class="title">世延豆漿</div>
                 <br>
                 <p class="spot-desc">特色餐廳，以傳統豆漿料理為主打。這裡的豆漿麵特別濃郁綿密，口味爽口又帶自然香氣，是當地人和遊客都喜歡的一道韓式美食。店內菜色還包括多種韓式麵食與家常菜，氣氛休閒，是品嚐地方特色料理的好選擇。</p>
             </div>
@@ -587,8 +835,8 @@
     <a class="spot-link">
         <div class="spot-row">
             <img class="spot-img" src="https://search.pstatic.net/common/?src=https%3A%2F%2Fpup-review-phinf.pstatic.net%2FMjAyNTA5MjNfMTMz%2FMDAxNzU4NjA5MzM5NDE1.s0YGGQGkv8wqGB4rgp9TvAf33jvPbwVDEbd5Fx7JcC4g.AkvJRsPJ7l2aa4bcr19elKcW-K9UdURKVYT0uoUQt4cg.JPEG%2F20250914_114353.jpg.jpg%3Ftype%3Dw1500_60_sharpen">
-            <div class="spot-info">
-                <div class="spot-name">E WORLD 83塔</div>
+            <div class="info">
+                <div class="title">E WORLD 83塔</div>
                 <br>
                 <p class="spot-desc">地標觀景塔。83 塔（又稱大邱塔）是摩天景觀塔，可乘電梯上觀景台俯瞰大邱市全景，白天和夜景都很美，是家庭旅遊與情侶約會熱門景點。</p>
             </div>
@@ -597,8 +845,8 @@
     <a class="spot-link">
         <div class="spot-row">
             <img class="spot-img" src="https://search.pstatic.net/common/?src=https%3A%2F%2Fpup-review-phinf.pstatic.net%2FMjAyNjAyMDRfMTc1%2FMDAxNzcwMTk5NjE2ODQw.SlOSwis1DE98tCrDZx5Y16w7NzWftBv3jFL_lvVxBN8g.OC3ZEneaot4xRFHqROCZOCmcw2GsvTIkdbSAEACGSDIg.JPEG%2F20260204_121728.jpg.jpg%3Ftype%3Dw1500_60_sharpen">
-            <div class="spot-info">
-                <div class="spot-name">達城公園</div>
+            <div class="info">
+                <div class="title">達城公園</div>
                 <br>
                 <p class="spot-desc">結合綠地與休閒設施的城市公園。園內有步道、花園和觀景區，適合散步、慢跑或家庭野餐，是市民放鬆休憩的熱門去處。</p>
             </div>
@@ -607,8 +855,8 @@
     <a href="https://naver.me/GwpM3aeO" class="spot-link" target="_blank">
         <div class="spot-row">
             <img class="spot-img" src="https://search.pstatic.net/common/?src=https%3A%2F%2Fpup-review-phinf.pstatic.net%2FMjAyNjAxMTFfMjUz%2FMDAxNzY4MDg4NTE3Njg2.TvksqGL5WX6xzuz4g7E_MiMm3zRmwOBOdCFWVDRA7sMg._ksLC6YhE_2kg1tKK52bOKcsOc2bGZ_MIzRvgzMk9RQg.JPEG%2FIMG_20260111_073214.jpg.jpg%3Ftype%3Dw1500_60_sharpen">
-            <div class="spot-info">
-                <div class="spot-name">西門市場</div>
+            <div class="info">
+                <div class="title">西門市場</div>
                 <br>
                 <p class="spot-desc">傳統市場與美食街結合的熱鬧區域。市場內有各式小吃、鮮魚、蔬果及生活用品，非常適合逛街、品嘗地道韓式美食和購買伴手禮。</p>
             </div>
@@ -617,8 +865,8 @@
     <a class="spot-link">
         <div class="spot-row">
             <img class="spot-img" src="https://search.pstatic.net/common/?src=https%3A%2F%2Fpup-review-phinf.pstatic.net%2FMjAyNTExMDlfMjUx%2FMDAxNzYyNjg1Mjc3NTMw.gArjwy4mRx_K_qIRp7kzml0BIaoHKCdq4AmOWeuf0yUg.JpC8p5emjVeajNzCCsTAUOQLjZSop1oCOrZiNwogOx0g.JPEG%2F20251109_154602.jpg.jpg%3Ftype%3Dw1500_60_sharpen">
-            <div class="spot-info">
-                <div class="spot-name">東山青蘿丘陵</div>
+            <div class="info">
+                <div class="title">東山青蘿丘陵</div>
                 <br>
                 <p class="spot-desc">自然景觀與登山步道結合的丘陵區。園區內綠樹蔥鬱、空氣清新，設有健行步道與觀景點，適合散步、慢跑與賞景，尤其春秋季節景色迷人。</p>
             </div>
@@ -627,8 +875,8 @@
     <a class="spot-link">
         <div class="spot-row">
             <img class="spot-img" src="https://search.pstatic.net/common/?src=https%3A%2F%2Fblogfiles.pstatic.net%2FMjAyNTAzMjlfMTkw%2FMDAxNzQzMjQ2NzM1OTMz.-coZK36Bg5LCuVamAnySfpOvbHAvg1drrYDssR7jt3Qg.V-FbfL46Q1MrfzStmkSa8vTSJJA4Pnsz6ZvLyXNYD98g.JPEG%2FIMG_3895.jpg%2F900x1200">
-            <div class="spot-info">
-                <div class="spot-name">大邱桂山洞天主教堂</div>
+            <div class="info">
+                <div class="title">大邱桂山洞天主教堂</div>
                 <br>
                 <p class="spot-desc">歷史天主教堂，以哥德式建築風格著稱。教堂內部典雅、氣氛寧靜，是信徒與遊客朝聖、拍照與欣賞宗教建築美的熱門景點。</p>
             </div>
@@ -637,8 +885,8 @@
     <a href="https://naver.me/GXApRupT" class="spot-link" target="_blank">
         <div class="spot-row">
             <img class="spot-img" src="https://search.pstatic.net/common/?src=https%3A%2F%2Fldb-phinf.pstatic.net%2F20210616_210%2F1623821611458iQOsY_JPEG%2FHCNXwLHJQedtbfLtj8vyMUPz.jpg">
-            <div class="spot-info">
-                <div class="spot-name">大邱近代胡同豆沙麵包</div>
+            <div class="info">
+                <div class="title">大邱近代胡同豆沙麵包</div>
                 <br>
                 <p class="spot-desc">知名烘焙店，以傳統風味豆沙麵包聞名。麵包外皮酥脆、內餡豆沙香甜綿密，是當地人和遊客喜愛的街頭甜點之一，適合當作散步時的輕食或伴手點心。</p>
             </div>
@@ -647,8 +895,8 @@
     <a class="spot-link">
         <div class="spot-row">
             <img class="spot-img" src="https://search.pstatic.net/common/?src=https%3A%2F%2Fpup-review-phinf.pstatic.net%2FMjAyNTEyMjVfMTgy%2FMDAxNzY2NjQ3NjAwMzYz.6MU6H7gkOy9kTBPFSfVZduxu5d877OcpxnmNk_A7V-kg.oxKpDlmYvAA_oj8yln3X8r1hlDnWZmD-LkqZwIxS0nYg.JPEG%2F20251225_142342.jpg.jpg%3Ftype%3Dw1500_60_sharpen">
-            <div class="spot-info">
-                <div class="spot-name">大邱藥令市韓醫藥博物館</div>
+            <div class="info">
+                <div class="title">大邱藥令市韓醫藥博物館</div>
                 <br>
                 <p class="spot-desc">展示韓國傳統韓醫藥歷史與文化。館內有藥材展示、古方文獻和互動體驗區，適合了解韓方醫藥知識並體驗傳統療法，是教育與旅遊結合的文化景點。</p>
             </div>
@@ -657,10 +905,93 @@
     <a href="https://naver.me/GJTiPJcc" class="spot-link" target="_blank">
         <div class="spot-row">
             <img class="spot-img" src="https://search.pstatic.net/common/?src=https%3A%2F%2Fldb-phinf.pstatic.net%2F20221130_209%2F1669801058831Xbf0q_JPEG%2F1669800963908.jpg">
-            <div class="spot-info">
-                <div class="spot-name">黃金八爪魚家</div>
+            <div class="info">
+                <div class="title">黃金八爪魚家</div>
                 <br>
                 <p class="spot-desc">當地人氣的韓式章魚料理餐廳，招牌是黃金八爪魚料理。料理口味濃郁、份量實在，是喜歡海鮮與辣味韓食的饕客常去的地方。</p>
+            </div>
+        </div>
+    </a>
+
+    <div class="day-banner" id="day6">4/2 (四) 鎮海</div>
+    <a class="spot-link">
+        <div class="spot-row">
+            <img class="spot-img" src="https://pimg.1px.tw/swh6487sws6487/1555740520-1567342686.jpg">
+            <div class="info">
+                <div class="title">海軍士官學校</div>
+                <br>
+                <p class="spot-desc">培養韓國海軍軍官的高等軍事學校。校園臨海而建，環境優美，每年櫻花季期間部分區域會對外開放參觀，是鎮海知名景點之一。</p>
+            </div>
+        </div>
+    </a>
+    <a class="spot-link">
+        <div class="spot-row">
+            <img class="spot-img" src="https://im.marieclaire.com.tw/m800c533h100b0webp100/assets/mc/202403/65E6E1F202F831709629938.jpeg">
+            <div class="info">
+                <div class="title">海軍鎮海基地司令部</div>
+                <br>
+                <p class="spot-desc">韓國海軍的重要作戰與後勤基地。基地臨海而建，規模龐大，每年鎮海軍港節期間部分區域會對外開放參觀，是當地代表性軍事地標。</p>
+            </div>
+        </div>
+    </a>
+    <a href="https://naver.me/GyYrQYMg" class="spot-link" target="_blank">
+        <div class="spot-row">
+            <img class="spot-img" src="https://search.pstatic.net/common/?src=https%3A%2F%2Fpup-review-phinf.pstatic.net%2FMjAyNTEyMjdfMjcy%2FMDAxNzY2ODI2NDY4MjY4.I0DLYHotMbdHuNb63A3arpgMD4BkHdUG07Or3bRl6ycg.7ErkL6rJGQiydZyEvb6IO5gfP2KOYUYhS9j8NYJN-R8g.JPEG%2F1766826386140.jpg.jpg%3Ftype%3Dw1500_60_sharpen">
+            <div class="info">
+                <div class="title">黃牛長沙</div>
+                <br>
+                <p class="spot-desc">人氣韓牛烤肉餐廳，以高品質牛肉與炭火燒烤聞名。肉質鮮嫩多汁，搭配韓式小菜風味十足。適合想品嚐道地韓牛料理的饕客。</p>
+            </div>
+        </div>
+    </a>
+    <a class="spot-link">
+        <div class="spot-row">
+            <img class="spot-img" src="https://www.settour.com.tw/ss_img/info/location/PUS/S0/PUS0000162/PUS0000162_68740.jpg">
+            <div class="info">
+                <div class="title">慶和火車站</div>
+                <br>
+                <p class="spot-desc">韓國著名的賞櫻景點。春天櫻花沿著鐵道兩旁盛開，形成夢幻粉色隧道，是拍照與散步的熱門地點。</p>
+            </div>
+        </div>
+    </a>
+    <a class="spot-link">
+        <div class="spot-row">
+            <img class="spot-img" src="https://www.settour.com.tw/ss_img/info/location/PUS/S0/PUS0000198/PUS0000198_71777.jpg">
+            <div class="info">
+                <div class="title">帝皇山公園</div>
+                <br>
+                <p class="spot-desc">結合自然步道與觀景平台的公園。園內綠樹環繞，可俯瞰鎮海港與櫻花景色，適合散步、拍照與賞景休憩。</p>
+            </div>
+        </div>
+    </a>
+    <a class="spot-link">
+        <div class="spot-row">
+            <img class="spot-img" src="https://www.travelclassroom.net/wp-content/uploads/2018/02/Jinhae-Gunhangje-Festival_04.webp">
+            <div class="info">
+                <div class="title">中原圓環</div>
+                <br>
+                <p class="spot-desc">鎮海軍港節時會在圓環附近擺小吃攤販，並且13:00-16:00還會舉辦第20屆鎮海軍港節歌唱大會。</p>
+            </div>
+        </div>
+    </a>
+    <a class="spot-link">
+        <div class="spot-row">
+            <img class="spot-img" src="https://search.pstatic.net/common/?src=https%3A%2F%2Fpup-review-phinf.pstatic.net%2FMjAyNTA0MDlfOTUg%2FMDAxNzQ0MTg3MjE3Nzk5.Gx5jvaYQZGr_z0wUQ05_k-cBwu46bb9AZxwowhkcdF8g.ACvyJaIZ1pdEe-Hj25JMlUqZmcvto3A-Olbvd2MYImYg.JPEG%2F20250409_134623.jpg.jpg%3Ftype%3Dw1500_60_sharpen">
+            <div class="info">
+                <div class="title">余佐川</div>
+                <br>
+                <p class="spot-desc">當地著名的河川景點。河岸兩旁有步道與綠地，春天櫻花盛開時形成美麗花道，是散步、賞花與拍照的熱門地點。</p>
+            </div>
+        </div>
+    </a>
+    <a href="https://naver.me/xKERN2HC" class="spot-link" target="_blank">
+        <div class="spot-row">
+            <img class="spot-img" src="https://search.pstatic.net/common/?src=https%3A%2F%2Fpup-review-phinf.pstatic.net%2FMjAyNjAyMThfMjM0%2FMDAxNzcxNDAxMjM0NzE4.R9qUtd8KrU597Ujt79jSQ030O4BAnXVzlph4QOP_GbIg.uvEOsj_e2vX7z--gH8arE_2jaFrfOm67kEc6OPPNEN4g.JPEG%2F20260218_163846.jpg.jpg%3Ftype%3Dw1500_60_sharpen">
+            <div class="info">
+                <div class="title">貝殼代表</div>
+                <span class="time-tag">18:30</span>
+                <br>
+                <p class="spot-desc">海鮮餐廳，主打各式新鮮貝類料理與海鮮套餐，份量實在、口味鮮美，是當地人氣聚餐選擇。</p>
             </div>
         </div>
     </a>
