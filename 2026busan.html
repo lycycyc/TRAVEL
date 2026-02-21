@@ -94,7 +94,8 @@
             background: rgba(255, 255, 255, 0.6);
             backdrop-filter: blur(12px);
             -webkit-backdrop-filter: blur(12px);
-            padding: 50px 20px; 
+            /* 這裡把 50px 改成 100px，留出足夠空間給圖示 */
+            padding: 100px 20px 50px 20px; 
             text-align: center;
             border-bottom: 2px solid var(--steel-blue);
         }
@@ -105,20 +106,23 @@
             position: sticky;
             top: 0;
             z-index: 1000;
-            background: rgba(255, 255, 255, 0.4); 
+            background: rgba(255, 255, 255, 0.8); /* 稍微增加不透明度 */
             backdrop-filter: blur(12px);
-            -webkit-backdrop-filter: blur(12px);
             padding: 12px 0;
+            /* 增加左邊距給手機版的圖示空間 */
+            padding-left: 60px; 
             display: flex;
             justify-content: center;
-            overflow-x: auto; 
-            white-space: nowrap;
+            overflow-x: auto;
             border-bottom: 1px solid var(--steel-blue);
-            scrollbar-width: none;
         }
-        
+
+        /* 在手機小螢幕時，確保導覽列內容不會被圖示重疊 */
         @media (max-width: 600px) {
-            .day-nav { justify-content: flex-start; padding-left: 15px; }
+            .day-nav { 
+                justify-content: flex-start; 
+                padding-left: 70px; /* 這裡多留一點，避開左上角按鈕 */
+            }
         }
 
         .day-nav::-webkit-scrollbar { display: none; }
@@ -149,7 +153,7 @@
             border-radius: 50px;
             display: inline-block;
             box-shadow: 4px 4px 0px var(--accent-pink);
-            scroll-margin-top: 150px; /* 這裡同步加大，避免點擊導覽跳轉時被頂部遮住 */
+            scroll-margin-top: 130px; /* 這裡同步加大，避免點擊導覽跳轉時被頂部遮住 */
         }
 
         .spot-link { text-decoration: none; color: inherit; display: block; margin-bottom: 30px; cursor: pointer; }
