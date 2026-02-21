@@ -1,89 +1,119 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <title>INFINITE</title>
+    <title>✈️</title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-    <link rel="stylesheet" href="INFINITE.css" >
     <style>
         body {
             margin: 0;
             background-color: black;
             text-align: center;
+            font-family: sans-serif;
         }
-        /* 手機版預設：導覽列改為頂部橫向排列 */
+
+        /* 左上角三條線圖示 */
+        .menu-icon {
+            position: fixed;
+            top: 15px;
+            left: 15px;
+            font-size: 25px;
+            color: white;
+            cursor: pointer;
+            z-index: 1001;
+            background: rgba(0,0,0,0.5);
+            padding: 5px 10px;
+            border-radius: 5px;
+        }
+
+        /* 導覽列 */
         ul {
             list-style-type: none;
             margin: 0;
-            padding: 0;
-            width: 100%; /* 手機版填滿寬度 */
-            background-color: #000;
-            position: relative; /* 手機版不固定在左側 */
-            overflow: auto;
-            display: flex; /* 讓選單橫著排 */
-            justify-content: center;
+            padding: 60px 0 0 0;
+            width: 250px; 
+            background-color: #000; /* 整個選單黑底 */
+            position: fixed;
+            height: 100%;
+            left: -250px; 
+            transition: 0.3s;
+            z-index: 1000;
+            overflow-y: auto;
         }
+
+        ul.open {
+            left: 0;
+        }
+
+        /* 選單文字置中與樣式 */
+        li {
+            text-align: center; /* 字體置中 */
+        }
+
         li a {
             display: block;
             color: white;
             padding: 20px 16px;
             text-decoration: none;
+            background-color: #000; /* 選項預設黑底 */
         }
-        li a.active {
-            background-color: #FFE4C4;
-            color: black;
-        }
-        li a:hover:not(.active) {
+
+        /* 滑鼠在上面時 (Hover) 以及 被選中時 (Active) 才變色 */
+        li a.active, li a:hover {
             background-color: #FFE4C4;
             color: black;
         }
 
-        /* 內容區塊手機版預設：不留左邊距 */
+        /* 內容區塊 */
         .content-div {
             margin-left: 0; 
             color: white; 
-            padding: 1px 16px; 
+            padding: 60px 16px 1px 16px; 
             min-height: 1000px;
+            transition: 0.3s;
         }
 
-        /* RWD 關鍵：電腦版設定（寬度 768px 以上） */
         @media screen and (min-width: 768px) {
-            ul {
-                width: 15%;
-                position: fixed;
-                height: 100%;
-                display: block; /* 恢復垂直排列 */
-            }
-            .content-div {
-                margin-left: 15%; /* 恢復左邊距 */
-            }
+            /* 若要在電腦版維持原本的 15% 佈局可在此調整 */
         }
     </style>
 </head>
 <body>
-    <ul>
-        <li><a class="active" href="index.html">♾️</a></li>
+
+    <div class="menu-icon" onclick="toggleMenu()">☰</div>
+
+    <ul id="sideMenu">
+        <li><a href="index.html">♾️</a></li>
         <li><a href="2026busan.html">2026 BUSAN</a></li>
     </ul>
     
-    <div class="content-div">
+    <div class="content-div" onclick="closeMenu()">
         <img src="https://pbs.twimg.com/profile_images/1800062497271234560/m17zH9nQ_400x400.jpg" style="width:100px;height:100px;">
         <br><br><br>
-        <center><blockquote class="twitter-tweet" data-media-max-width="800">
-            <a href="https://t.co/4DMdt7CPV6"></a>
-            <a href="https://twitter.com/hashtag/%EC%9D%B8%ED%94%BC%EB%8B%88%ED%8A%B8?src=hash&amp;ref_src=twsrc%5Etfw"></a>
-            <a href="https://twitter.com/hashtag/INFINITE?src=hash&amp;ref_src=twsrc%5Etfw"></a>
-            <a href="https://twitter.com/hashtag/Comeback?src=hash&amp;ref_src=twsrc%5Etfw"></a>
-            <a href="https://twitter.com/hashtag/7th_Mini_Album?src=hash&amp;ref_src=twsrc%5Etfw"></a>
-            <a href="https://twitter.com/hashtag/Begin?src=hash&amp;ref_src=twsrc%5Etfw"></a>
-            <a href="https://twitter.com/hashtag/New_Emotions?src=hash&amp;ref_src=twsrc%5Etfw"></a>
-            <a href="https://t.co/5KJkQbgOD7"></a>
-            <a href="https://twitter.com/IFNT_Official_/status/1685938349666627584?ref_src=twsrc%5Etfw"></a>
-        </blockquote></center>
+        <center>
+            <blockquote class="twitter-tweet" data-media-max-width="800" data-theme="dark">
+                <a href="https://twitter.com/IFNT_Official_/status/1685938349666627584"></a>
+            </blockquote>
+        </center>
         <script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
     </div>
+
     <footer id="footer">
-        <div style="color: #FFE4C4; text-align:center">Edited by Jessica Liu</div>
+        <div style="color: #FFE4C4; text-align:center; padding: 20px;">Edited by Jessica Liu</div>
     </footer>
+
+    <script>
+        function toggleMenu() {
+            var menu = document.getElementById("sideMenu");
+            menu.classList.toggle("open");
+        }
+
+        function closeMenu() {
+            var menu = document.getElementById("sideMenu");
+            if (menu.classList.contains("open")) {
+                menu.classList.remove("open");
+            }
+        }
+    </script>
 </body>
 </html>
