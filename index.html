@@ -11,15 +11,17 @@
             background-color: black;
             text-align: center;
         }
+        /* 手機版預設：導覽列改為頂部橫向排列 */
         ul {
             list-style-type: none;
             margin: 0;
             padding: 0;
-            width: 15%;
+            width: 100%; /* 手機版填滿寬度 */
             background-color: #000;
-            position: fixed;
-            height: 100%;
+            position: relative; /* 手機版不固定在左側 */
             overflow: auto;
+            display: flex; /* 讓選單橫著排 */
+            justify-content: center;
         }
         li a {
             display: block;
@@ -35,6 +37,27 @@
             background-color: #FFE4C4;
             color: black;
         }
+
+        /* 內容區塊手機版預設：不留左邊距 */
+        .content-div {
+            margin-left: 0; 
+            color: white; 
+            padding: 1px 16px; 
+            min-height: 1000px;
+        }
+
+        /* RWD 關鍵：電腦版設定（寬度 768px 以上） */
+        @media screen and (min-width: 768px) {
+            ul {
+                width: 15%;
+                position: fixed;
+                height: 100%;
+                display: block; /* 恢復垂直排列 */
+            }
+            .content-div {
+                margin-left: 15%; /* 恢復左邊距 */
+            }
+        }
     </style>
 </head>
 <body>
@@ -43,7 +66,7 @@
         <li><a href="2026busan.html">2026 BUSAN</a></li>
     </ul>
     
-    <div style="margin-left: 15%; color: white; padding: 1px 16px; height: 1000px;">
+    <div class="content-div">
         <img src="https://pbs.twimg.com/profile_images/1800062497271234560/m17zH9nQ_400x400.jpg" style="width:100px;height:100px;">
         <br><br><br>
         <center><blockquote class="twitter-tweet" data-media-max-width="800">
