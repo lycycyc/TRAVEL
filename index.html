@@ -154,37 +154,60 @@
             box-shadow: 0 2px 5px rgba(0,0,0,0.05);
         }
 
-        /* 交通運輸專用樣式 */
-        .transport-link { text-decoration: none; color: inherit; display: block; margin-bottom: 30px; cursor: pointer; }
+        .transport-link { 
+            text-decoration: none; 
+            color: inherit; 
+            display: block; 
+            margin-bottom: 30px; 
+            cursor: pointer; 
+        }
 
+        /* 預設：手機版佈局 */
         .transport-card {
             background: var(--glass-white);
             border-radius: 20px;
-            padding: 20px;
+            padding: 15px;
             margin-bottom: 30px;
             display: flex;
             align-items: center;
-            gap: 100px;
+            gap: 15px; /* 手機版間距縮小，防止內容溢出 */
             box-shadow: 0 4px 15px rgba(0,0,0,0.05);
+            transition: all 0.3s ease;
         }
 
+        .transport-icon {
+            font-size: 2.2rem; /* 手機版圖示稍微縮小 */
+            background: white;
+            width: 65px;      /* 手機版圓圈縮小 */
+            height: 65px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border-radius: 50%;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+            flex-shrink: 0;   /* 確保圓圈不被擠壓 */
+        }
+
+        /* 點擊效果 */
         .transport-link:hover .transport-card {
             transform: translateY(-5px);
             background: rgba(255, 255, 255, 0.98);
             border: 1px solid var(--sky-blue-main);
         }
 
-        .transport-icon {
-            margin-left: 100px;
-            font-size: 3.33rem;
-            background: white;
-            width: 100px;
-            height: 100px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            border-radius: 50%;
-            box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+        /* 電腦版：當螢幕寬度大於 768px 時，回復你原本的設定 */
+        @media (min-width: 768px) {
+            .transport-card {
+                padding: 20px;
+                gap: 100px; /* 回復電腦版的大間距 */
+            }
+
+            .transport-icon {
+                margin-left: 100px; /* 回復電腦版的左邊距 */
+                width: 100px;      /* 回復 100px 圓圈 */
+                height: 100px;
+                font-size: 3.33rem;
+            }
         }
 
         .transport-time-group {
@@ -289,42 +312,6 @@
             </div>
         </div>
     </a>
-    <div class="connection-node">
-        <div class="walk-tag">走路 5 分鐘</div>
-    </div>
-    <a class="transport-link">
-        <div class="transport-card">
-            <div class="transport-icon">🚇</div>
-            <div class="info">
-                <div class="title">桃園捷運</div>
-                <span class="time-tag">悠遊卡</span>
-                <br>
-                <div class="transport-time-group">
-                    <div class="time-box">
-                        <div class="time-val">12:17</div>
-                        <div class="time-loc">高鐵桃園站</div>
-                    </div>
-                    <div class="time-arrow"><span class="duration-tag">19分鐘</span></div>
-                    <div class="time-box">
-                        <div class="time-val">12:36</div>
-                        <div class="time-loc">機場第一航廈</div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </a>
-    <a class="spot-link">
-        <div class="spot-row">
-            <img class="spot-img" src="https://www.taoyuan-airport.com/api/imagecrop/coverImage/7666CD75-3195-F011-BC16-0050569094FE">
-            <div class="info">
-                <div class="title">異饌小廚</div>
-                <br>
-                <p class="spot-desc">販售南洋風味創意料理、火鍋與套餐等。</p>
-                <br>
-                <p class="spot-desc">📍 第一航廈-B1</p>
-            </div>
-        </div>
-    </a>
     <a class="transport-link">
         <div class="transport-card">
             <div class="transport-icon">✈️</div>
@@ -346,58 +333,6 @@
             </div>
         </div>
     </a>
-    <div class="connection-node">
-        <div class="walk-tag">走路 4 分鐘</div>
-    </div>
-    <a class="transport-link">
-        <div class="transport-card">
-            <div class="transport-icon">🚈</div>
-            <div class="info">
-                <div class="title">釜山金海輕軌</div>
-                <span class="time-tag">儲值Tmoney</span>
-                <br>
-                <p class="spot-desc">西釜山流通地區站方向 快速換乘1-1</p>
-                <br>
-                <div class="transport-time-group">
-                    <div class="time-box">
-                        <div class="time-val">機場站</div>
-                        <div class="time-loc">1號出口</div>
-                    </div>
-                    <div class="time-arrow"><span class="duration-tag">7分鐘</span></div>
-                    <div class="time-box">
-                        <div class="time-val">沙上站</div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </a>
-    <div class="connection-node">
-        <div class="walk-tag">走路 6 分鐘</div>
-    </div>
-    <a class="transport-link">
-        <div class="transport-card">
-            <div class="transport-icon">🚇</div>
-            <div class="info">
-                <div class="title">2號線</div>
-                <br>
-                <p class="spot-desc">甘田站方向 快速下車5-2</p>
-                <br>
-                <div class="transport-time-group">
-                    <div class="time-box">
-                        <div class="time-val">沙上站</div>
-                    </div>
-                    <div class="time-arrow"><span class="duration-tag">33分鐘</span></div>
-                    <div class="time-box">
-                        <div class="time-val">金蓮山站</div>
-                        <div class="time-loc">1號出口</div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </a>
-    <div class="connection-node">
-        <div class="walk-tag">走路 11 分鐘</div>
-    </div>
     <a class="spot-link">
         <div class="spot-row">
             <img class="spot-img" src="https://search.pstatic.net/common/?src=https%3A%2F%2Fpup-review-phinf.pstatic.net%2FMjAyNTAzMDZfMjIy%2FMDAxNzQxMTkxMzA1MDAy.Vliq79Qm5CEA6nYtQwOmDjItbsZSSlDzEV8qDezLNVIg.k2vvKuzKNI6f35vEJ7FmQwc6PV1UFPcjWOAvAPCohQcg.JPEG%2FIMG_4199.jpeg%3Ftype%3Dw1500_60_sharpen">
@@ -406,9 +341,6 @@
             </div>
         </div>
     </a>
-    <div class="connection-node">
-        <div class="walk-tag">走路 6 分鐘</div>
-    </div>
     <a href="https://naver.me/G4Wo3D8L" class="spot-link" target="_blank">
         <div class="spot-row">
             <img class="spot-img" src="https://search.pstatic.net/common/?src=https%3A%2F%2Fldb-phinf.pstatic.net%2F20240313_20%2F1710297487847Jrq0E_JPEG%2F001.jpg">
@@ -419,9 +351,6 @@
             </div>
         </div>
     </a>
-    <div class="connection-node">
-        <div class="walk-tag">走路 6 分鐘回民宿</div>
-    </div>
 
     <div class="day-banner" id="day2">3/29 (日) 五六島＋東萊</div>
     <a href="https://naver.me/GeUiQN33" class="spot-link" target="_blank">
